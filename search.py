@@ -1,8 +1,11 @@
 import pandas as pd
 from sklearn.svm import SVC  
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split,ParameterGrid, cross_val_score, StratifiedKFold, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
+from sklearn.pipeline import Pipeline
+from tqdm.auto import tqdm
+import numpy as np
 
 
 month_map = {
@@ -38,19 +41,29 @@ clf.fit(X_train, y_train)
 # print("Accuracy:", clf.score(X_test, y_test))
 
 #三种选择模型的参数的设置
+
+pipe = Pipeline([('scale', StandardScaler()), ('svc', SVC(cache_size=500))])
 param_grid = {
-    'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
-    'C': [0.1, 1, 10],
-    'gamma': ['scale', 0.01, 0.1, 1]
+    'svc__kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
+    'svc__C': [0.1, 1, 10],
+    'svc__gamma': ['scale', 0.01, 0.1, 1]
 }
 
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+grid = list(ParameterGrid(param_grid))
+
+scores = []
+best = (None, -np.inf)
+for params in tqdm(grid, desc="GridSearch", unit="combo"):
+    pipe.set_params(**params)
+    cv_scores = cross_val_score(pipe, X_train, y_train, cv=cv, scoring='accuracy', n_jobs=-1)
+    mean_score = cv_scores.mean()
+    scores.append((params, mean_score))
+    if mean_score > best[1]:
+        best = (params, mean_score)
 #网格输出所有组合的性能
-grid = GridSearchCV(SVC(), param_grid, cv=5, scoring='accuracy', n_jobs=-1)
-grid.fit(X_train, y_train)
-
-results = pd.DataFrame(grid.cv_results_)
-print(results[['param_kernel','param_C','param_gamma','mean_test_score']])
-
-print("最佳参数:", grid.best_params_)
-print("训练集最优得分:", grid.best_score_)
-print("测试集准确率:", grid.score(X_test, y_test))
+print("最佳参数:", best[0])
+print("训练集最优得分:", best[1])
+# 用最佳参数在测试集上评估
+pipe.set_params(**best[0]).fit(X_train, y_train)
+print("测试集准确率:", pipe.score(X_test, y_test))
