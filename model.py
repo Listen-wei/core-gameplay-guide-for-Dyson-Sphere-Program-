@@ -141,3 +141,57 @@ if __name__ == '__main__':
     print("4) 最优核函数（你的调参结果）: RBF")
     print("5) 参数影响: C=10 (较高惩罚) ; gamma=0.01 (较平滑的 RBF)")
     print("===========================================================")
+
+
+
+from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.decomposition import PCA
+
+# ------- 1. 混淆矩阵 + Precision/Recall/F1 -------
+y_pred = clf.predict(X_test)
+
+print("\n=========== 混淆矩阵 ===========")
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+
+print("\n=========== 分类报告（Precision / Recall / F1）===========")
+cr = classification_report(y_test, y_pred, digits=4)
+print(cr)
+
+
+kernels = ['linear', 'rbf', 'sigmoid']
+kernel_acc = {}
+
+for k in kernels:
+    print(f"正在训练 kernel={k} ...")
+    temp_clf = SVC(kernel=k, C=10, gamma=0.01)
+    temp_clf.fit(X_train, y_train)
+    acc = temp_clf.score(X_test, y_test)
+    kernel_acc[k] = acc
+
+print("\n=========== 各核函数测试集准确率（用于画柱状图）===========")
+print(kernel_acc)
+
+
+
+# ------- 3. 混淆矩阵热图数据 -------
+labels = ["Not Revenue", "Revenue"]
+print("\n=========== 混淆矩阵热图数据 ==========")
+print("labels:", labels)
+print("matrix:\n", cm)
+
+
+# ------- 4. PCA 降维用于决策边界绘图 -------
+pca = PCA(n_components=2, random_state=42)
+X_test_pca = pca.fit_transform(X_test)
+y_pred_pca = clf.predict(X_test)
+
+print("\n=========== PCA 2D 用于绘制决策边界的数据 ==========")
+print("X_test_pca (前10行):")
+print(X_test_pca[:10])
+
+print("\n对应的预测标签 y_pred_pca (前10个):")
+print(y_pred_pca[:10])
+
+print("\n真实标签 y_test（前10个）:")
+print(np.array(y_test)[:10])

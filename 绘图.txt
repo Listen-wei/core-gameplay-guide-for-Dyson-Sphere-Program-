@@ -1,0 +1,96 @@
+测试集准确率: 0.8407677750743444
+
+[class_weight] 使用 class_weight='balanced' 后的准确率: 0.8383346850500135 (time 2.64s)
+
+5 折交叉验证准确率: [0.84509327 0.84549878 0.84347121 0.83738848 0.84225466]
+平均准确率: 0.842741 (time 28.82s)
+
+=== SelectKBest 选出的前10个特征 ===
+['Administrative', 'Administrative_Duration', 'Informational', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'Month', 'VisitorType_Returning_Visitor']
+Time: 0.00s
+
+=== RFE (LinearSVC 基学习器) 选出的前10个特征 ===
+['Informational', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'Month', 'VisitorType_Other', 'VisitorType_Returning_Visitor']
+Time: 0.14s
+
+=== 线性核 SVM (LinearSVC) 特征权重（前10名） ===
+PageValues                     weight=0.631897
+VisitorType_Other              weight=-0.284295
+ExitRates                      weight=-0.248140
+Month                          weight=0.149058
+ProductRelated_Duration        weight=0.092685
+VisitorType_Returning_Visitor  weight=-0.087081
+OperatingSystems               weight=-0.057313
+SpecialDay                     weight=-0.049285
+Informational                  weight=0.042529
+BounceRates                    weight=0.041120
+Time: 0.01s
+
+=== RBF SVM Permutation Importance (sample=1000, repeats=3) ===
+PageValues                     importance=0.007667
+Administrative_Duration        importance=0.004000
+Month                          importance=0.003667
+Browser                        importance=0.001333
+Region                         importance=0.001000
+Administrative                 importance=0.000000
+BounceRates                    importance=0.000000
+ExitRates                      importance=0.000000
+SpecialDay                     importance=0.000000
+Weekend                        importance=0.000000
+Time: 10.00s
+
+==================== 模型分析总结（简要） ====================
+1) Top features (SelectKBest): ['Administrative', 'Administrative_Duration', 'Informational', 'ProductRelated', 'ProductRelated_Duration']
+2) Top features (RFE): ['Informational', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates']
+3) LinearSVC top weights: ['PageValues', 'VisitorType_Other', 'ExitRates', 'Month', 'ProductRelated_Duration']
+4) 最优核函数（你的调参结果）: RBF
+5) 参数影响: C=10 (较高惩罚) ; gamma=0.01 (较平滑的 RBF)
+===========================================================
+
+=========== 混淆矩阵 ===========
+[[3095   29]
+ [ 560   15]]
+
+=========== 分类报告（Precision / Recall / F1）===========
+              precision    recall  f1-score   support
+
+       False     0.8468    0.9907    0.9131      3124
+        True     0.3409    0.0261    0.0485       575
+
+    accuracy                         0.8408      3699
+   macro avg     0.5938    0.5084    0.4808      3699
+weighted avg     0.7681    0.8408    0.7787      3699
+
+
+
+
+linear: 0.873
+rbf: 0.891
+sigmoid: 0.742
+
+
+
+=========== 混淆矩阵热图数据 ==========
+labels: ['Not Revenue', 'Revenue']
+matrix:
+ [[3095   29]
+ [ 560   15]]
+
+=========== PCA 2D 用于绘制决策边界的数据 ==========
+X_test_pca (前10行):
+[[-1.38768549e+02  5.63949478e+01]
+ [ 1.32988317e+03  3.37013158e+02]
+ [ 3.11235676e+03 -1.81074788e+02]
+ [-5.84466153e+02  7.44957671e+01]
+ [ 3.79532401e+03  5.17802951e+02]
+ [-7.79899130e+02 -3.28693889e+01]
+ [-1.00860354e+03 -4.46135520e+01]
+ [-9.97587451e+02 -4.50512281e+01]
+ [ 1.40627892e+03 -2.24448954e+00]
+ [-1.10154127e+03  9.57252565e+01]]
+
+对应的预测标签 y_pred_pca (前10个):
+[False False False False False False False False False False]
+
+真实标签 y_test（前10个）:
+[False  True False False False False False False False False]
