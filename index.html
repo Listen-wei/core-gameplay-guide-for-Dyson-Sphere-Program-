@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>戴森球计划单条产线计算器</title>
+    <link rel="stylesheet" href="./styles.css?v=20260721-1" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel" aria-labelledby="app-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Dyson Sphere Program</p>
+            <h1 id="app-title">单条产线设备数量计算器</h1>
+          </div>
+          <button class="ghost-button" type="button" id="reset-example">恢复示例</button>
+        </div>
+
+        <form id="line-form" autocomplete="off">
+          <fieldset>
+            <legend>配方</legend>
+            <div class="form-grid">
+              <label>
+                <span>搜索配方</span>
+                <input id="recipe-search" type="search" placeholder="输入产物、原料或设备名称" />
+                <small class="field-hint" id="recipe-filter-count" aria-live="polite"></small>
+              </label>
+              <label>
+                <span>当前配方 / 快速选择</span>
+                <select id="recipe-select"></select>
+              </label>
+              <label>
+                <span>主产物名称</span>
+                <input id="output-name" type="text" />
+              </label>
+              <label>
+                <span>配方耗时（秒）</span>
+                <input id="recipe-time" type="number" min="0.01" step="0.01" />
+              </label>
+              <label>
+                <span>主产物单次产出</span>
+                <input id="output-amount" type="number" min="0.01" step="0.01" />
+              </label>
+              <label>
+                <span>油氢处理模式</span>
+                <select id="oil-hydrogen-mode"></select>
+              </label>
+            </div>
+            <div class="recipe-library">
+              <div class="legend-row">
+                <strong class="sublegend">配方列表（点击即可加载）</strong>
+                <span class="recipe-result-help">列表可滚动</span>
+              </div>
+              <div class="recipe-results" id="recipe-results" aria-label="配方搜索结果"></div>
+            </div>
+            <p class="block-note recipe-source-note">
+              已内置 <strong id="wiki-recipe-count"></strong> 条配方，数据来自
+              <a href="https://wiki.biligame.com/dsp/%E9%A6%96%E9%A1%B5" target="_blank" rel="noreferrer">戴森球计划 BWIKI</a>；
+              采矿、抽水和掉落等获取方式可单独选择，展开生产链时按外部输入处理。
+            </p>
+            <div class="outputs-block">
+              <div class="legend-row">
+                <strong class="sublegend">副产物</strong>
+                <button class="ghost-button compact" type="button" id="add-output">添加副产物</button>
+              </div>
+              <div class="output-table" role="table" aria-label="副产物列表">
+                <div class="output-row output-head" role="row">
+                  <span role="columnheader">名称</span>
+                  <span role="columnheader">单次产出</span>
+                  <span role="columnheader">输出带数</span>
+                  <span role="columnheader">操作</span>
+                </div>
+                <div id="outputs-list"></div>
+              </div>
+            </div>
+            <div class="recipe-actions">
+              <button class="ghost-button compact" type="button" id="new-recipe">新建配方</button>
+              <button class="ghost-button compact" type="button" id="save-recipe">保存到配方库</button>
+              <button class="ghost-button compact danger" type="button" id="delete-recipe">删除自定义配方</button>
+            </div>
+            <p class="form-message" id="recipe-message" aria-live="polite"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>设备与增产</legend>
+            <div class="form-grid">
+              <label>
+                <span>设备预设</span>
+                <select id="machine-select"></select>
+              </label>
+              <label>
+                <span>设备速度倍率</span>
+                <input id="machine-speed" type="number" min="0.01" step="0.01" />
+              </label>
+              <label>
+                <span>增产/加速</span>
+                <select id="proliferator-select"></select>
+              </label>
+              <label>
+                <span>额外产物倍率</span>
+                <input id="productivity-multiplier" type="number" min="1" step="0.001" />
+              </label>
+              <label>
+                <span>加速倍率</span>
+                <input id="speed-multiplier" type="number" min="1" step="0.001" />
+              </label>
+              <label>
+                <span>目标模式</span>
+                <select id="target-mode">
+                  <option value="belt">按产物传送带满载</option>
+                  <option value="custom">按指定产量</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>传送带</legend>
+            <div class="form-grid">
+              <label>
+                <span>产物传送带</span>
+                <select id="output-belt"></select>
+              </label>
+              <label>
+                <span>产物带数量</span>
+                <input id="output-belt-count" type="number" min="1" step="1" />
+              </label>
+              <label>
+                <span>堆叠倍率</span>
+                <input id="stack-size" type="number" min="1" max="4" step="1" />
+              </label>
+              <label>
+                <span>指定目标（个/分钟）</span>
+                <input id="custom-target" type="number" min="0.01" step="0.01" />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div class="legend-row">
+              <legend>原料</legend>
+              <button class="ghost-button compact" type="button" id="add-input">添加原料</button>
+            </div>
+            <div class="input-table" role="table" aria-label="原料列表">
+              <div class="input-row input-head" role="row">
+                <span role="columnheader">名称</span>
+                <span role="columnheader">单次消耗</span>
+                <span role="columnheader">输入带数</span>
+                <span role="columnheader">操作</span>
+              </div>
+              <div id="inputs-list"></div>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <section class="result-panel" aria-live="polite">
+        <div class="panel-heading result-heading">
+          <div>
+            <p class="eyebrow">Result</p>
+            <h2>计算结果</h2>
+          </div>
+          <span id="fit-badge" class="status-badge">等待输入</span>
+        </div>
+
+        <div class="metric-grid" id="metric-grid"></div>
+
+        <section class="result-block">
+          <h3>瓶颈约束</h3>
+          <div class="constraint-table" id="constraint-table"></div>
+        </section>
+
+        <section class="result-block">
+          <h3>全链路设备</h3>
+          <p class="block-note" id="chain-note"></p>
+          <div class="chain-summary" id="chain-summary"></div>
+          <div class="flow-legend">
+            <span><i class="flow-swatch raw" aria-hidden="true"></i>外部输入</span>
+            <span><i class="flow-swatch crafted" aria-hidden="true"></i>生产步骤</span>
+            <span><i class="flow-swatch target" aria-hidden="true"></i>目标产物</span>
+            <span>物料流向 →（横向滚动查看完整链路）</span>
+            <span class="flow-completion-hint">点击节点切换完成状态 · <strong id="flow-completion-progress" aria-live="polite">已完成 0/0</strong></span>
+          </div>
+          <div class="chain-flow-wrap">
+            <div class="chain-flowchart" id="chain-flowchart" role="group" aria-label="生产链流程图"></div>
+          </div>
+        </section>
+
+        <section class="result-block">
+          <h3>公式</h3>
+          <div class="formula-list">
+            <p>单机产出 = 60 / 配方耗时 × 设备速度 × 加速倍率 × 单次产出 × 增产倍率</p>
+            <p>副产物产出 = 60 / 配方耗时 × 设备速度 × 加速倍率 × 副产物单次产出 × 增产倍率</p>
+            <p>单机原料 = 60 / 配方耗时 × 设备速度 × 加速倍率 × 单次原料</p>
+            <p>满带上限 = floor(传送带速度 × 60 × 堆叠倍率 × 带数 / 单机流量)</p>
+            <p>精确设备 = 目标产量 / 单机产出；实际建造设备 = ceil(精确设备)</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <template id="input-row-template">
+      <div class="input-row" role="row">
+        <label>
+          <span class="sr-only">原料名称</span>
+          <input class="ingredient-name" type="text" />
+        </label>
+        <label>
+          <span class="sr-only">单次消耗</span>
+          <input class="ingredient-amount" type="number" min="0.01" step="0.01" />
+        </label>
+        <label>
+          <span class="sr-only">输入带数</span>
+          <input class="ingredient-belts" type="number" min="1" step="1" />
+        </label>
+        <button class="remove-button" type="button" title="删除这一行" aria-label="删除这一行">×</button>
+      </div>
+    </template>
+
+    <template id="output-row-template">
+      <div class="output-row" role="row">
+        <label>
+          <span class="sr-only">副产物名称</span>
+          <input class="extra-output-name" type="text" />
+        </label>
+        <label>
+          <span class="sr-only">副产物单次产出</span>
+          <input class="extra-output-amount" type="number" min="0.01" step="0.01" />
+        </label>
+        <label>
+          <span class="sr-only">副产物输出带数</span>
+          <input class="extra-output-belts" type="number" min="1" step="1" />
+        </label>
+        <button class="remove-button" type="button" title="删除这一行" aria-label="删除这一行">×</button>
+      </div>
+    </template>
+
+    <script type="module" src="./app.js?v=20260721-1"></script>
+  </body>
+</html>

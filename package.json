@@ -1,0 +1,15 @@
+{
+  "name": "dsp-single-line-calculator",
+  "version": "1.0.0",
+  "description": "《戴森球计划》单线与全链路产能计算器，附模块化施工图和递进攻略。",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/calc.test.mjs",
+    "check": "node --check app.js && node --check wiki-recipes.js",
+    "audit:blueprints": "node scripts/audit-blueprint-coverage.mjs",
+    "simulate:late-game": "node scripts/simulate-blueprint-demand.mjs",
+    "validate": "npm run check && npm test && npm run audit:blueprints && npm run simulate:late-game",
+    "import:wiki": "node scripts/import-wiki-recipes.mjs"
+  }
+}
