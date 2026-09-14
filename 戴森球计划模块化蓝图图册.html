@@ -990,8 +990,29 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;body&gt;
 &lt;div id=&quot;dsp-blueprint-atlas&quot;&gt;
   &lt;h2&gt;模块化产区蓝图图册&lt;/h2&gt;
+  &lt;p class=&quot;text-small text-muted&quot;&gt;原创施工模板：吸收 BWIKI《黑雾版本新手开局攻略》的递进节点，以及“新手保姆蓝图·黑雾版 v15.0”的三矿总线、黑盒分类与五色转白糖思路；不转载两位作者的图片或蓝图字符串。本页不是游戏内可直接导入的蓝图串。速率均为未增产的理论满载值，制造台注明 Mk.I / Mk.II，设备小数是精确需求，实建数一律向上取整；版本配方有差异时以游戏内数值为准。&lt;/p&gt;
+  &lt;div class=&quot;viz-controls dsp-stage-nav&quot; aria-label=&quot;按阶段筛选&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-stage-filter=&quot;all&quot; aria-pressed=&quot;true&quot;&gt;全部&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;0&quot; aria-pressed=&quot;false&quot;&gt;0 落地&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;1&quot; aria-pressed=&quot;false&quot;&gt;1 蓝糖/防御&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;2&quot; aria-pressed=&quot;false&quot;&gt;2 红糖/超市&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;3&quot; aria-pressed=&quot;false&quot;&gt;3 钛硅/黄糖&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;4&quot; aria-pressed=&quot;false&quot;&gt;4 物流塔&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;5&quot; aria-pressed=&quot;false&quot;&gt;5 紫绿糖&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;6&quot; aria-pressed=&quot;false&quot;&gt;6 戴森球/白糖&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-stage-filter=&quot;7&quot; aria-pressed=&quot;false&quot;&gt;7 跨星系&lt;/button&gt;
+  &lt;/div&gt;
   &lt;div class=&quot;viz-controls&quot; aria-label=&quot;选择蓝图&quot;&gt;
+    &lt;span class=&quot;dsp-nav-label&quot;&gt;主线必拍&lt;/span&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-blueprint=&quot;starter&quot; aria-pressed=&quot;true&quot;&gt;母星总图&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;bus-market&quot; aria-pressed=&quot;false&quot;&gt;三矿总线超市&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;blue-line&quot; aria-pressed=&quot;false&quot;&gt;蓝糖 60&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;defense&quot; aria-pressed=&quot;false&quot;&gt;前期黑雾防线&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;red-line&quot; aria-pressed=&quot;false&quot;&gt;红糖 60&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;first-trip&quot; aria-pressed=&quot;false&quot;&gt;首次钛硅外运&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;yellow-line&quot; aria-pressed=&quot;false&quot;&gt;黄糖 60&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;tower-switch&quot; aria-pressed=&quot;false&quot;&gt;物流塔切换&lt;/button&gt;
+    &lt;span class=&quot;dsp-nav-label&quot;&gt;按需附录&lt;/span&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;outpost&quot; aria-pressed=&quot;false&quot;&gt;资源矿站&lt;/button&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;orbital&quot; aria-pressed=&quot;false&quot;&gt;轨道采集&lt;/button&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;smelt&quot; aria-pressed=&quot;false&quot;&gt;冶炼 24 台&lt;/button&gt;
@@ -1014,6 +1035,17 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-blueprint=&quot;power&quot; aria-pressed=&quot;false&quot;&gt;燃料电站&lt;/button&gt;
   &lt;/div&gt;
 
+  &lt;div class=&quot;card dsp-build-rules&quot;&gt;
+    &lt;strong&gt;统一施工方向（除闭环分馏外）&lt;/strong&gt;
+    &lt;p class=&quot;text-small&quot;&gt;左侧需求塔直接出料 → 输入主干分流到每个设备子块 → 每台设备用分拣器连接全部原料带和独立成品带 → 成品带向右直接接入供给塔端口。箭头表示传送带实际行进方向；矩形是功能分区，不表示可以省略支带。&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;card dsp-stage-plan&quot;&gt;
+    &lt;strong id=&quot;dsp-stage-title&quot;&gt;本阶段只拍这些&lt;/strong&gt;
+    &lt;p id=&quot;dsp-stage-now&quot; class=&quot;text-small&quot;&gt;母星总图 → 蓝糖 60 → 前期黑雾防线；不要提前铺永久大总线。&lt;/p&gt;
+    &lt;p id=&quot;dsp-stage-gate&quot; class=&quot;text-small text-muted&quot;&gt;离开条件：蓝糖稳定 60/min、弹药库存 200、电网持续无黄条。&lt;/p&gt;
+  &lt;/div&gt;
+
   &lt;div class=&quot;dsp-selected card&quot; aria-live=&quot;polite&quot;&gt;
     &lt;div&gt;
       &lt;strong id=&quot;dsp-bp-title&quot;&gt;母星塔前阶段总图&lt;/strong&gt;
@@ -1029,13 +1061,28 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;div class=&quot;dsp-east&quot;&gt;向东复制扩产 →&lt;/div&gt;
   &lt;/div&gt;
 
+  &lt;div class=&quot;card dsp-guide&quot; aria-label=&quot;施工卡&quot;&gt;
+    &lt;div class=&quot;dsp-guide-grid&quot;&gt;
+      &lt;section&gt;&lt;strong&gt;解锁与阶段&lt;/strong&gt;&lt;p id=&quot;dsp-guide-unlock&quot; class=&quot;text-small&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+      &lt;section&gt;&lt;strong&gt;完全输入 / 输出&lt;/strong&gt;&lt;p id=&quot;dsp-guide-rate&quot; class=&quot;text-small tabular-nums&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+      &lt;section&gt;&lt;strong&gt;设备：精确 → 实建&lt;/strong&gt;&lt;p id=&quot;dsp-guide-machines&quot; class=&quot;text-small tabular-nums&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+      &lt;section&gt;&lt;strong&gt;带向 / 塔槽&lt;/strong&gt;&lt;p id=&quot;dsp-guide-logistics&quot; class=&quot;text-small&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;dsp-guide-grid dsp-guide-bottom&quot;&gt;
+      &lt;section&gt;&lt;strong&gt;照图建设顺序&lt;/strong&gt;&lt;ol id=&quot;dsp-guide-steps&quot; class=&quot;text-small&quot;&gt;&lt;/ol&gt;&lt;/section&gt;
+      &lt;section&gt;&lt;strong&gt;验收&lt;/strong&gt;&lt;ul id=&quot;dsp-guide-checks&quot; class=&quot;text-small&quot;&gt;&lt;/ul&gt;&lt;/section&gt;
+      &lt;section&gt;&lt;strong&gt;升级 / 拆除&lt;/strong&gt;&lt;p id=&quot;dsp-guide-life&quot; class=&quot;text-small&quot;&gt;&lt;/p&gt;&lt;/section&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
   &lt;div class=&quot;viz-row dsp-legend&quot; aria-label=&quot;图例&quot;&gt;
     &lt;span&gt;&lt;i class=&quot;dsp-key dsp-key-input&quot;&gt;&lt;/i&gt;原料入口 / 需求塔&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;dsp-key dsp-key-output&quot;&gt;&lt;/i&gt;缓存出口 / 供给塔&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;dsp-key dsp-key-machine&quot;&gt;&lt;/i&gt;生产设备组&lt;/span&gt;
-    &lt;span&gt;&lt;i class=&quot;dsp-key dsp-key-belt&quot;&gt;&lt;/i&gt;传送带走廊&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;dsp-key dsp-key-belt&quot;&gt;&lt;/i&gt;传送带走廊（箭头为实际方向）&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;dsp-key dsp-key-power&quot;&gt;&lt;/i&gt;电力列&lt;/span&gt;
   &lt;/div&gt;
+  &lt;p class=&quot;text-small text-muted&quot;&gt;参考入口：&lt;a href=&quot;https://wiki.biligame.com/dsp/%E9%BB%91%E9%9B%BE%E7%89%88%E6%9C%AC%E6%96%B0%E6%89%8B%E5%BC%80%E5%B1%80%E6%94%BB%E7%95%A5&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;BWIKI 新手开局攻略&lt;/a&gt; · &lt;a href=&quot;https://www.bilibili.com/opus/856142837888057344&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;新手保姆蓝图·黑雾版 v15.0&lt;/a&gt;。本页只做原创规划和算量；需要原作者蓝图字符串请从原页面下载。&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
@@ -1061,6 +1108,69 @@ html&gt;body{padding:0}&lt;/style&gt;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
+  }
+
+  #dsp-blueprint-atlas .dsp-stage-nav {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #dsp-blueprint-atlas .dsp-nav-label {
+    align-self: center;
+    color: var(--muted-foreground);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+  }
+
+  #dsp-blueprint-atlas .dsp-nav-label:not(:first-child) {
+    margin-left: 0.6rem;
+  }
+
+  #dsp-blueprint-atlas .dsp-stage-plan {
+    display: grid;
+    gap: 0.35rem;
+    border-left: 4px solid var(--primary);
+  }
+
+  #dsp-blueprint-atlas [data-blueprint][hidden] {
+    display: none;
+  }
+
+  #dsp-blueprint-atlas .dsp-guide {
+    display: grid;
+    gap: 1rem;
+  }
+
+  #dsp-blueprint-atlas .dsp-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  #dsp-blueprint-atlas .dsp-guide-bottom {
+    grid-template-columns: 1.35fr 1fr 1fr;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+  }
+
+  #dsp-blueprint-atlas .dsp-guide section {
+    min-width: 0;
+    padding: 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+    background: color-mix(in srgb, var(--card) 80%, transparent);
+  }
+
+  #dsp-blueprint-atlas .dsp-guide section :is(p, ol, ul) {
+    margin: 0.4rem 0 0;
+  }
+
+  #dsp-blueprint-atlas .dsp-guide :is(ol, ul) {
+    padding-left: 1.2rem;
+  }
+
+  #dsp-blueprint-atlas .dsp-guide li + li {
+    margin-top: 0.2rem;
   }
 
   #dsp-blueprint-atlas .dsp-field {
@@ -1177,6 +1287,21 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dsp-blueprint-atlas .dsp-piece {
       padding: 0.2rem;
     }
+
+    #dsp-blueprint-atlas .dsp-guide-grid,
+    #dsp-blueprint-atlas .dsp-guide-bottom {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 521px) and (max-width: 900px) {
+    #dsp-blueprint-atlas .dsp-guide-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #dsp-blueprint-atlas .dsp-guide-bottom {
+      grid-template-columns: 1fr;
+    }
   }
 &lt;/style&gt;
 
@@ -1188,6 +1313,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     const size = root.querySelector(&quot;#dsp-bp-size&quot;);
     const io = root.querySelector(&quot;#dsp-bp-io&quot;);
     const count = root.querySelector(&quot;#dsp-bp-count&quot;);
+    const guideUnlock = root.querySelector(&quot;#dsp-guide-unlock&quot;);
+    const guideRate = root.querySelector(&quot;#dsp-guide-rate&quot;);
+    const guideMachines = root.querySelector(&quot;#dsp-guide-machines&quot;);
+    const guideLogistics = root.querySelector(&quot;#dsp-guide-logistics&quot;);
+    const guideSteps = root.querySelector(&quot;#dsp-guide-steps&quot;);
+    const guideChecks = root.querySelector(&quot;#dsp-guide-checks&quot;);
+    const guideLife = root.querySelector(&quot;#dsp-guide-life&quot;);
+    const stageTitle = root.querySelector(&quot;#dsp-stage-title&quot;);
+    const stageNow = root.querySelector(&quot;#dsp-stage-now&quot;);
+    const stageGate = root.querySelector(&quot;#dsp-stage-gate&quot;);
 
     const blueprints = {
       starter: {
@@ -1208,11 +1343,128 @@ html&gt;body{padding:0}&lt;/style&gt;
           [&quot;aisle&quot;, 5, 82, 40, 11, &quot;扩建空地：物流塔与新模块&quot;],
         ],
       },
+      &quot;bus-market&quot;: {
+        title: &quot;铁·铜·石三矿总线 + 分段建筑超市&quot;,
+        size: &quot;东西向 3 带 · 可逐段追加&quot;,
+        io: &quot;输入：铁矿 ≥360/min、铜矿 ≥180/min、石矿 ≥180/min｜输出：传送带 135/min、分拣器 45/min，并限量缓存常用建筑&quot;,
+        count: &quot;三条原矿带始终西→东；每个建筑小块从下方总线向北单独分流，块内就地冶炼/制造，成品只进自己的限量箱，绝不返回总线。&quot;,
+        pieces: [
+          [&quot;output&quot;, 5, 8, 12, 18, &quot;带 / 爪\n限量箱&quot;],
+          [&quot;machine&quot;, 21, 8, 14, 18, &quot;风电 / 电塔&quot;],
+          [&quot;machine&quot;, 39, 8, 14, 18, &quot;矿机 / 熔炉&quot;],
+          [&quot;machine&quot;, 57, 8, 14, 18, &quot;制造台 / 仓&quot;],
+          [&quot;machine&quot;, 75, 8, 18, 18, &quot;分流器 / 火电\n按科技追加&quot;],
+          [&quot;belt&quot;, 4, 44, 89, 7, &quot;铁矿总线 →　每段只向北引支线&quot;],
+          [&quot;belt&quot;, 4, 56, 89, 7, &quot;铜矿总线 →　支线用分流器或侧接&quot;],
+          [&quot;belt&quot;, 4, 68, 89, 7, &quot;石矿总线 →　末端保留继续延长&quot;],
+          [&quot;power&quot;, 4, 83, 89, 7, &quot;统一电力脊柱 · 每段独立断电检查&quot;],
+        ],
+      },
+      &quot;blue-line&quot;: {
+        title: &quot;蓝糖 60/min 起步线&quot;,
+        size: &quot;约 20×35 · Mk.I&quot;,
+        io: &quot;输入：铁矿 120/min、铜矿 60/min｜输出：电磁矩阵 60/min；电路板、磁线圈各 60/min&quot;,
+        count: &quot;精确：研究站 3、Mk.I 制造台各 0.67、铁熔炉 1、磁铁熔炉 1.5、铜熔炉 1；实建：3 + 1 + 1 + 1 + 2 + 1。&quot;,
+        pieces: [
+          [&quot;input&quot;, 3, 17, 16, 27, &quot;铁矿 120\n铜矿 60&quot;],
+          [&quot;machine&quot;, 24, 8, 19, 17, &quot;铁块\n熔炉 ×1&quot;],
+          [&quot;machine&quot;, 24, 31, 19, 17, &quot;磁铁\n熔炉 ×2&quot;],
+          [&quot;machine&quot;, 24, 54, 19, 17, &quot;铜块\n熔炉 ×1&quot;],
+          [&quot;machine&quot;, 50, 16, 18, 18, &quot;电路板\nMk.I ×1&quot;],
+          [&quot;machine&quot;, 50, 49, 18, 18, &quot;磁线圈\nMk.I ×1&quot;],
+          [&quot;belt&quot;, 45, 73, 27, 6, &quot;组件各 60 →&quot;],
+          [&quot;output&quot;, 77, 25, 17, 38, &quot;研究站 ×3\n蓝糖 60&quot;],
+          [&quot;power&quot;, 72, 10, 3, 62, &quot;电&quot;],
+        ],
+      },
+      defense: {
+        title: &quot;前期黑雾定向防线&quot;,
+        size: &quot;约 18×24 · 面向来敌&quot;,
+        io: &quot;输入：机枪弹箱；战前库存 ≥200｜输出：覆盖最靠近黑雾方向的进攻通道&quot;,
+        count: &quot;高斯机枪塔 ×4、弹药环线 ×1、输入箱 ×1；第一波可由机甲处理，蓝糖稳定后立即补齐。&quot;,
+        pieces: [
+          [&quot;input&quot;, 3, 35, 17, 25, &quot;弹药箱\n库存 ≥200&quot;],
+          [&quot;belt&quot;, 22, 39, 50, 7, &quot;机枪弹箱环线 →→→&quot;],
+          [&quot;machine&quot;, 27, 17, 13, 16, &quot;高斯塔 1&quot;],
+          [&quot;machine&quot;, 46, 17, 13, 16, &quot;高斯塔 2&quot;],
+          [&quot;machine&quot;, 27, 57, 13, 16, &quot;高斯塔 3&quot;],
+          [&quot;machine&quot;, 46, 57, 13, 16, &quot;高斯塔 4&quot;],
+          [&quot;power&quot;, 65, 17, 4, 56, &quot;电力列&quot;],
+          [&quot;aisle&quot;, 74, 12, 20, 66, &quot;来敌方向\n清空射界&quot;],
+        ],
+      },
+      &quot;red-line&quot;: {
+        title: &quot;红糖 60/min 过渡线&quot;,
+        size: &quot;两段蓝图 · 油氢闭环&quot;,
+        io: &quot;需求：氢 120/min、高能石墨 120/min｜供给：能量矩阵 60/min；先以等离子精炼攒料，400 红糖后切 X 射线裂解&quot;,
+        count: &quot;研究站 ×6；裂解段精确/实建均为精炼厂 ×8（精炼油 120 + 循环氢 240 → 氢 360 + 石墨 120）；前端精炼油来源另设缓存。&quot;,
+        pieces: [
+          [&quot;input&quot;, 2, 8, 17, 31, &quot;精炼油 120\n补氢 / 回流&quot;],
+          [&quot;machine&quot;, 25, 13, 39, 18, &quot;X 射线裂解 ×8&quot;],
+          [&quot;belt&quot;, 22, 38, 49, 7, &quot;氢回路保持满带 →&quot;],
+          [&quot;belt&quot;, 22, 49, 49, 7, &quot;净氢 120 → 红糖&quot;],
+          [&quot;belt&quot;, 22, 60, 49, 7, &quot;石墨 120 → 红糖&quot;],
+          [&quot;machine&quot;, 30, 72, 32, 15, &quot;研究站 ×6\n红糖 60&quot;],
+          [&quot;output&quot;, 77, 31, 17, 30, &quot;红糖箱 / 供给\n60/min&quot;],
+          [&quot;power&quot;, 72, 13, 3, 74, &quot;电&quot;],
+        ],
+      },
+      &quot;first-trip&quot;: {
+        title: &quot;首次钛硅外运前哨&quot;,
+        size: &quot;矿星临时场 · 双独立线&quot;,
+        io: &quot;输入：钛石、硅石、风电｜装船目标：钛块 ≥2,000，高纯硅块 ≥800&quot;,
+        count: &quot;每种矿 6–12 台熔炉，矿带与锭带完全分开；先钛后硅。带回后钛优先黄糖/两座星际塔，硅优先处理器，不做太阳能板。&quot;,
+        pieces: [
+          [&quot;input&quot;, 3, 10, 16, 25, &quot;钛矿机组&quot;],
+          [&quot;belt&quot;, 23, 14, 30, 7, &quot;钛石 →&quot;],
+          [&quot;machine&quot;, 57, 8, 15, 20, &quot;钛熔炉\n×6–12&quot;],
+          [&quot;output&quot;, 77, 8, 17, 22, &quot;钛块箱\n≥2,000&quot;],
+          [&quot;input&quot;, 3, 51, 16, 25, &quot;硅矿机组&quot;],
+          [&quot;belt&quot;, 23, 55, 30, 7, &quot;硅石 →&quot;],
+          [&quot;machine&quot;, 57, 49, 15, 20, &quot;硅熔炉\n×6–12&quot;],
+          [&quot;output&quot;, 77, 49, 17, 22, &quot;硅块箱\n≥800&quot;],
+          [&quot;power&quot;, 22, 82, 70, 7, &quot;风电链 + 防御预留&quot;],
+        ],
+      },
+      &quot;yellow-line&quot;: {
+        title: &quot;黄糖 60/min 定量过渡线&quot;,
+        size: &quot;油化工大块 · 先解锁物流&quot;,
+        io: &quot;输入：原油 300/min、煤 360/min、水 60/min、钛块 180/min｜输出：结构矩阵 60/min；副产氢 150/min&quot;,
+        count: &quot;精确/实建：研究站 8、钛晶石 Mk.II ×4、有机晶体化工厂 ×6、塑料化工厂 ×6、高能石墨熔炉 ×6、金刚石熔炉 ×2、等离子精炼 ×10。&quot;,
+        pieces: [
+          [&quot;input&quot;, 2, 7, 17, 32, &quot;原油 / 煤 / 水\n钛块&quot;],
+          [&quot;machine&quot;, 24, 8, 18, 17, &quot;精炼 ×10&quot;],
+          [&quot;machine&quot;, 47, 8, 18, 17, &quot;塑料 ×6&quot;],
+          [&quot;machine&quot;, 24, 34, 18, 17, &quot;有机晶体 ×6&quot;],
+          [&quot;machine&quot;, 47, 34, 18, 17, &quot;钛晶石\nMk.II ×4&quot;],
+          [&quot;machine&quot;, 24, 60, 18, 17, &quot;石墨 ×6\n金刚石 ×2&quot;],
+          [&quot;machine&quot;, 47, 60, 18, 17, &quot;研究站 ×8&quot;],
+          [&quot;belt&quot;, 22, 82, 48, 6, &quot;黄糖 60 → 限量缓存&quot;],
+          [&quot;output&quot;, 77, 28, 17, 34, &quot;黄糖箱\n先取 200&quot;],
+          [&quot;power&quot;, 71, 8, 3, 69, &quot;电&quot;],
+        ],
+      },
+      &quot;tower-switch&quot;: {
+        title: &quot;首次星际物流 + 一配方一塔切换&quot;,
+        size: &quot;母星 / 矿星各一塔&quot;,
+        io: &quot;矿星：钛块星际供应｜母星：钛块星际需求、本地供应；随后逐个把旧线迁成“原料需求 + 成品供应”黑盒&quot;,
+        count: &quot;星际塔 ×2、运输船 ×10。整条航线物料预算：钛合金 280、粒子容器 40、处理器 100、电磁涡轮 100。&quot;,
+        pieces: [
+          [&quot;input&quot;, 3, 18, 21, 43, &quot;矿星 ILS\n钛块：星际供应\n可不供电 / 不放船&quot;],
+          [&quot;belt&quot;, 28, 34, 25, 8, &quot;运输船航线 →&quot;],
+          [&quot;output&quot;, 58, 18, 21, 43, &quot;母星 ILS\n钛块：星际需求\n通电 + 船 ×10&quot;],
+          [&quot;belt&quot;, 58, 70, 21, 7, &quot;钛块本地供应 → 新黑盒&quot;],
+          [&quot;machine&quot;, 82, 18, 14, 24, &quot;新模块 A\n一配方一塔&quot;],
+          [&quot;machine&quot;, 82, 52, 14, 24, &quot;新模块 B\n复制扩产&quot;],
+          [&quot;power&quot;, 54, 12, 3, 66, &quot;母星电网&quot;],
+          [&quot;aisle&quot;, 3, 84, 93, 8, &quot;新块稳定 5 分钟后再停旧线，最后拆旧总线&quot;],
+        ],
+      },
       outpost: {
         title: &quot;资源星开采前哨&quot;,
         size: &quot;64×64 · L&quot;,
-        io: &quot;输入：电力、翘曲器｜供给：一种矿石或一种锭｜矿机短带汇流，就地冶炼后再星际运输&quot;,
-        count: &quot;每种产物独立星际塔；矿机按矿脉摆放，塔侧预留 3 条矿带与 1 条成品带。新星球先供电，再开塔。&quot;,
+        io: &quot;输入：电力、翘曲器｜供给：一种矿石或一种锭｜矿带只允许二选一：直接入塔，或先进熔炉再由锭带入塔&quot;,
+        count: &quot;每座星际塔只供给一种产物。矿带从矿机向右汇流；选择就地冶炼时，矿带止于熔炉，另建成品锭带向右进入供给塔，矿石与锭禁止混带。&quot;,
         pieces: [
           [&quot;input&quot;, 3, 7, 18, 22, &quot;矿脉 A\n矿机 ×4–8&quot;],
           [&quot;input&quot;, 3, 38, 18, 22, &quot;矿脉 B\n矿机 ×4–8&quot;],
@@ -1220,7 +1472,7 @@ html&gt;body{padding:0}&lt;/style&gt;
           [&quot;belt&quot;, 25, 19, 42, 6, &quot;矿带 2 →&quot;],
           [&quot;belt&quot;, 25, 42, 42, 6, &quot;矿带 3 →&quot;],
           [&quot;machine&quot;, 29, 56, 34, 17, &quot;就地熔炉 ×12–24&quot;],
-          [&quot;belt&quot;, 25, 77, 42, 6, &quot;← 矿石 / 锭&quot;],
+          [&quot;belt&quot;, 25, 77, 42, 6, &quot;矿石直送 / 成品锭 → 供给塔&quot;],
           [&quot;output&quot;, 74, 26, 20, 35, &quot;星际塔\n供给单一产物&quot;],
           [&quot;power&quot;, 69, 8, 3, 72, &quot;独立电力骨架&quot;],
           [&quot;aisle&quot;, 3, 87, 91, 7, &quot;着陆区 / 防御与扩矿预留&quot;],
@@ -1248,15 +1500,15 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;单产物冶炼模块&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：一种矿石，最高按 1,440/min 预留｜供给：一种锭｜适用：铁、铜、硅、钛、石材&quot;,
-        count: &quot;24 台熔炉，分两排；升级熔炉时整块复制，不在原位替换。&quot;,
+        count: &quot;24 台熔炉分两排，中央共享“矿石带 + 成品带”；上下两排都能用分拣器直连两条带。两带均向右，成品带直接进入供给塔。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 8, 15, 28, &quot;需求塔\n矿石&quot;],
-          [&quot;belt&quot;, 20, 12, 52, 7, &quot;输入带 →&quot;],
-          [&quot;machine&quot;, 25, 22, 42, 16, &quot;熔炉 ×12&quot;],
-          [&quot;power&quot;, 20, 22, 3, 16, &quot;电&quot;],
-          [&quot;belt&quot;, 20, 41, 52, 7, &quot;← 成品带&quot;],
-          [&quot;machine&quot;, 25, 51, 42, 16, &quot;熔炉 ×12&quot;],
-          [&quot;power&quot;, 69, 51, 3, 16, &quot;电&quot;],
+          [&quot;input&quot;, 2, 29, 15, 28, &quot;需求塔\n矿石&quot;],
+          [&quot;machine&quot;, 25, 12, 42, 16, &quot;上排熔炉 ×12&quot;],
+          [&quot;belt&quot;, 20, 34, 52, 7, &quot;矿石 →&quot;],
+          [&quot;belt&quot;, 20, 44, 52, 7, &quot;成品 → 供给塔&quot;],
+          [&quot;machine&quot;, 25, 57, 42, 16, &quot;下排熔炉 ×12&quot;],
+          [&quot;power&quot;, 20, 12, 3, 61, &quot;电&quot;],
+          [&quot;power&quot;, 69, 12, 3, 61, &quot;电&quot;],
           [&quot;output&quot;, 76, 29, 18, 28, &quot;供给塔\n成品&quot;],
           [&quot;aisle&quot;, 2, 74, 92, 12, &quot;四格检修通道 / 东侧继续复制&quot;],
         ],
@@ -1265,131 +1517,125 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;多原料合金冶炼模块&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：钛块、钢材、硫酸｜供给：钛合金｜同样适合其他多原料熔炉配方&quot;,
-        count: &quot;熔炉 ×12，钛合金设计产能 240/min；目标 100/min 时只需启用 5 台，其余作为扩容位。&quot;,
+        count: &quot;熔炉 ×12 排成一条长列，三条输入带放在设备北侧，独立成品带放在南侧；每台熔炉都直连 3 入 1 出。若改成双排，必须复制完整四带子块。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 7, 18, 31, &quot;需求塔\n钛 / 钢 / 硫酸&quot;],
+          [&quot;input&quot;, 2, 16, 18, 31, &quot;需求塔\n钛 / 钢 / 硫酸&quot;],
           [&quot;belt&quot;, 23, 9, 48, 6, &quot;钛块 →&quot;],
           [&quot;belt&quot;, 23, 17, 48, 6, &quot;钢材 →&quot;],
           [&quot;belt&quot;, 23, 25, 48, 6, &quot;硫酸 →&quot;],
-          [&quot;machine&quot;, 28, 36, 38, 16, &quot;熔炉 ×6&quot;],
-          [&quot;machine&quot;, 28, 57, 38, 16, &quot;熔炉 ×6&quot;],
-          [&quot;belt&quot;, 23, 77, 48, 6, &quot;← 钛合金&quot;],
-          [&quot;power&quot;, 23, 36, 3, 37, &quot;电&quot;],
+          [&quot;machine&quot;, 28, 37, 18, 18, &quot;熔炉 ×6&quot;],
+          [&quot;machine&quot;, 50, 37, 18, 18, &quot;熔炉 ×6&quot;],
+          [&quot;belt&quot;, 23, 62, 48, 6, &quot;钛合金 → 供给塔&quot;],
+          [&quot;power&quot;, 23, 37, 3, 18, &quot;电&quot;],
           [&quot;output&quot;, 77, 31, 17, 31, &quot;供给塔\n钛合金&quot;],
-          [&quot;aisle&quot;, 2, 87, 92, 7, &quot;硫酸带与固体带分层跨越&quot;],
+          [&quot;aisle&quot;, 2, 76, 92, 11, &quot;三条输入带不得混线；硫酸带需要跨越时走二层&quot;],
         ],
       },
       &quot;two-input&quot;: {
         title: &quot;双原料制造模块&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：原料 A、原料 B｜供给：一种成品｜适用：电路板、磁线圈、处理器、量子芯片&quot;,
-        count: &quot;默认 24 台制造台；两条输入带夹一条成品带，机器分两排镜像摆放。&quot;,
+        count: &quot;默认 24 台制造台。中央三带固定按 A / 成品 / B 排列，上下两排镜像共享；每台机器安装 A 输入、B 输入、成品输出三根分拣器。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 9, 16, 30, &quot;需求塔\nA / B&quot;],
-          [&quot;belt&quot;, 21, 11, 52, 6, &quot;A →&quot;],
-          [&quot;belt&quot;, 21, 19, 52, 6, &quot;B →&quot;],
-          [&quot;machine&quot;, 26, 28, 42, 15, &quot;制造台 ×12&quot;],
-          [&quot;belt&quot;, 21, 46, 52, 6, &quot;← 成品&quot;],
-          [&quot;machine&quot;, 26, 55, 42, 15, &quot;制造台 ×12&quot;],
-          [&quot;power&quot;, 21, 28, 3, 42, &quot;电&quot;],
+          [&quot;input&quot;, 2, 31, 16, 30, &quot;需求塔\nA / B&quot;],
+          [&quot;machine&quot;, 26, 10, 42, 15, &quot;上排制造台 ×12&quot;],
+          [&quot;belt&quot;, 21, 31, 52, 6, &quot;A →&quot;],
+          [&quot;belt&quot;, 21, 40, 52, 6, &quot;成品 → 供给塔&quot;],
+          [&quot;belt&quot;, 21, 49, 52, 6, &quot;B →&quot;],
+          [&quot;machine&quot;, 26, 61, 42, 15, &quot;下排制造台 ×12&quot;],
+          [&quot;power&quot;, 21, 10, 3, 66, &quot;电&quot;],
           [&quot;output&quot;, 77, 31, 17, 28, &quot;供给塔\n成品&quot;],
-          [&quot;aisle&quot;, 2, 76, 92, 10, &quot;四格检修通道&quot;],
+          [&quot;aisle&quot;, 2, 82, 92, 8, &quot;输入带在塔前分口；成品带直接进入右塔端口&quot;],
         ],
       },
       &quot;three-input&quot;: {
-        title: &quot;三原料制造模块&quot;,
-        size: &quot;64×64 · L&quot;,
-        io: &quot;需求：原料 A、B、C｜供给：一种成品｜适用：粒子宽带、位面过滤器、卡西米尔晶体、框架材料&quot;,
-        count: &quot;32 台制造台，四个 8 台子块；输入拆成两座塔，避免塔槽与吞吐拥挤。&quot;,
+        title: &quot;三原料制造 · 8 台标准子块&quot;,
+        size: &quot;32×64 · M&quot;,
+        io: &quot;需求：原料 A、B、C｜供给：一种成品｜适用：卡西米尔晶体、钛化玻璃、框架材料等三原料配方&quot;,
+        count: &quot;单图只画 8 台标准子块：制造台单排，北侧两条输入带，南侧一条输入带和一条成品带，所有分拣器跨度不超过 2 条带。需要 32 台时完整复制本块 4 次，并在塔口分流、塔前汇流。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 6, 15, 25, &quot;需求塔 1\nA / B&quot;],
-          [&quot;input&quot;, 2, 40, 15, 25, &quot;需求塔 2\nC&quot;],
-          [&quot;belt&quot;, 20, 8, 50, 6, &quot;A →&quot;],
-          [&quot;belt&quot;, 20, 16, 50, 6, &quot;B →&quot;],
-          [&quot;machine&quot;, 25, 25, 18, 16, &quot;制造台 ×8&quot;],
-          [&quot;machine&quot;, 49, 25, 18, 16, &quot;制造台 ×8&quot;],
-          [&quot;belt&quot;, 20, 44, 50, 6, &quot;C →&quot;],
-          [&quot;machine&quot;, 25, 54, 18, 16, &quot;制造台 ×8&quot;],
-          [&quot;machine&quot;, 49, 54, 18, 16, &quot;制造台 ×8&quot;],
-          [&quot;belt&quot;, 20, 73, 50, 6, &quot;← 成品&quot;],
-          [&quot;power&quot;, 45, 24, 2, 47, &quot;电&quot;],
-          [&quot;output&quot;, 76, 28, 18, 30, &quot;供给塔\n成品&quot;],
-          [&quot;aisle&quot;, 2, 84, 92, 9, &quot;南侧检修通道&quot;],
+          [&quot;input&quot;, 2, 25, 17, 34, &quot;需求塔\nA / B / C&quot;],
+          [&quot;belt&quot;, 22, 9, 49, 6, &quot;A（北外侧）→&quot;],
+          [&quot;belt&quot;, 22, 18, 49, 6, &quot;B（北内侧）→&quot;],
+          [&quot;machine&quot;, 29, 31, 36, 17, &quot;制造台 ×8 · 单排\n每台：A+B+C → 成品&quot;],
+          [&quot;belt&quot;, 22, 55, 49, 6, &quot;C（南内侧）→&quot;],
+          [&quot;belt&quot;, 22, 64, 49, 6, &quot;成品（南外侧）→ 供给塔&quot;],
+          [&quot;power&quot;, 24, 31, 3, 17, &quot;电&quot;],
+          [&quot;output&quot;, 77, 28, 17, 34, &quot;供给塔\n单一成品&quot;],
+          [&quot;aisle&quot;, 2, 78, 92, 12, &quot;扩产：整块复制；最高吞吐原料优先放内侧带&quot;],
         ],
       },
       &quot;multi-input&quot;: {
-        title: &quot;四至五原料制造模块&quot;,
-        size: &quot;64×64 · L&quot;,
+        title: &quot;四至五原料制造 · 4 台标准子块&quot;,
+        size: &quot;32×64 · M&quot;,
         io: &quot;需求：原料 A–E｜供给：一种成品｜适用：燃料棒、复杂建筑、黑雾装备与多原料后期零件&quot;,
-        count: &quot;制造台 ×16，四个 4 台子块；两座输入塔分担槽位。建筑类成品必须接限量箱，禁止无限生产。&quot;,
+        count: &quot;单图只画 4 台标准子块：制造台单排，北侧 A/B/C 三带，南侧 D/E/成品三带；每台安装 5 入 1 出共 6 根分拣器，最远只跨 3 条带。需要更多设备时完整复制六带子块。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 5, 16, 27, &quot;需求塔 1\nA / B / C&quot;],
-          [&quot;input&quot;, 2, 44, 16, 27, &quot;需求塔 2\nD / E&quot;],
-          [&quot;belt&quot;, 21, 7, 50, 5, &quot;A →&quot;],
-          [&quot;belt&quot;, 21, 14, 50, 5, &quot;B →&quot;],
-          [&quot;belt&quot;, 21, 21, 50, 5, &quot;C →&quot;],
-          [&quot;machine&quot;, 25, 31, 18, 14, &quot;制造台 ×4&quot;],
-          [&quot;machine&quot;, 49, 31, 18, 14, &quot;制造台 ×4&quot;],
-          [&quot;belt&quot;, 21, 50, 50, 5, &quot;D →&quot;],
-          [&quot;belt&quot;, 21, 57, 50, 5, &quot;E →&quot;],
-          [&quot;machine&quot;, 25, 66, 18, 14, &quot;制造台 ×4&quot;],
-          [&quot;machine&quot;, 49, 66, 18, 14, &quot;制造台 ×4&quot;],
-          [&quot;belt&quot;, 21, 83, 50, 5, &quot;← 成品&quot;],
-          [&quot;power&quot;, 45, 30, 2, 50, &quot;电&quot;],
+          [&quot;input&quot;, 2, 6, 17, 31, &quot;需求塔 1\nA / B / C&quot;],
+          [&quot;input&quot;, 2, 52, 17, 27, &quot;需求塔 2\nD / E&quot;],
+          [&quot;belt&quot;, 22, 7, 49, 5, &quot;A（北最外）→&quot;],
+          [&quot;belt&quot;, 22, 14, 49, 5, &quot;B（北中）→&quot;],
+          [&quot;belt&quot;, 22, 21, 49, 5, &quot;C（北内侧）→&quot;],
+          [&quot;machine&quot;, 31, 33, 32, 15, &quot;制造台 ×4 · 单排\n每台：A+B+C+D+E → 成品&quot;],
+          [&quot;belt&quot;, 22, 55, 49, 5, &quot;D（南内侧）→&quot;],
+          [&quot;belt&quot;, 22, 62, 49, 5, &quot;E（南中）→&quot;],
+          [&quot;belt&quot;, 22, 69, 49, 5, &quot;成品（南最外）→ 供给塔 / 限量仓&quot;],
+          [&quot;power&quot;, 25, 33, 3, 15, &quot;电&quot;],
           [&quot;output&quot;, 77, 30, 17, 36, &quot;供给塔 /\n限量仓&quot;],
-          [&quot;aisle&quot;, 2, 91, 92, 5, &quot;南侧检修通道&quot;],
+          [&quot;aisle&quot;, 2, 82, 92, 9, &quot;建筑默认只启用 1 台；扩产必须复制完整六带子块&quot;],
         ],
       },
       chemical: {
         title: &quot;化工模块&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：最多三种固体/液体｜供给：主产物；副产物另接独立塔｜适用：塑料、石墨烯、碳纳米管、有机晶体&quot;,
-        count: &quot;16 台化工厂，两排各 8 台；液体走外侧，固体走中轴，副产物禁止回流输入塔。&quot;,
+        count: &quot;16 台化工厂分成两个完整 8 台子块。所有固体/液体输入主干都要分给上下两块；每块独立收集主产物与副产物，再分别汇入右侧两个出口。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 7, 17, 29, &quot;需求塔\n固体 / 液体&quot;],
-          [&quot;belt&quot;, 22, 9, 47, 6, &quot;固体 →&quot;],
-          [&quot;belt&quot;, 22, 17, 47, 6, &quot;液体 →&quot;],
-          [&quot;machine&quot;, 27, 27, 37, 17, &quot;化工厂 ×8&quot;],
-          [&quot;belt&quot;, 22, 47, 47, 6, &quot;← 主产物&quot;],
-          [&quot;machine&quot;, 27, 57, 37, 17, &quot;化工厂 ×8&quot;],
+          [&quot;belt&quot;, 22, 9, 47, 6, &quot;全部输入主干 → 上下两支&quot;],
+          [&quot;machine&quot;, 27, 22, 37, 17, &quot;化工子块 1 · ×8\n完整输入 + 双输出&quot;],
+          [&quot;belt&quot;, 22, 43, 47, 6, &quot;主产物汇流 → 主供给塔&quot;],
+          [&quot;machine&quot;, 27, 55, 37, 17, &quot;化工子块 2 · ×8\n完整输入 + 双输出&quot;],
+          [&quot;belt&quot;, 22, 76, 47, 6, &quot;副产物汇流 → 副产塔 / 消耗线&quot;],
           [&quot;power&quot;, 22, 27, 3, 47, &quot;电&quot;],
           [&quot;output&quot;, 75, 27, 19, 29, &quot;供给塔\n主产物&quot;],
           [&quot;output&quot;, 75, 62, 19, 17, &quot;副产塔&quot;],
-          [&quot;aisle&quot;, 2, 84, 92, 9, &quot;检修 / 管线缓冲&quot;],
+          [&quot;aisle&quot;, 2, 86, 92, 7, &quot;主、副产物禁止同带；副产出口不得堵塞&quot;],
         ],
       },
       refinery: {
         title: &quot;油氢平衡炼油模块&quot;,
         size: &quot;64×64 · L&quot;,
         io: &quot;输入：原油；可选煤｜输出：精炼油、氢、高能石墨｜三种出口各自缓冲，任何副产物都不得堵线&quot;,
-        count: &quot;等离子精炼 ×8 为 240 原油/min 基线；预留裂解 ×4、重整 ×4，根据红糖与塑料库存启停。&quot;,
+        count: &quot;等离子精炼 ×8 为 240 原油/min 基线；精炼油、氢、高能石墨使用三条独立输出带。裂解与重整按库存择一或分组启停，任何副产出口不得堵塞。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 7, 17, 27, &quot;需求塔\n原油 / 煤&quot;],
           [&quot;belt&quot;, 22, 9, 48, 6, &quot;原油 240 →&quot;],
           [&quot;machine&quot;, 27, 20, 38, 17, &quot;等离子精炼 ×8&quot;],
-          [&quot;belt&quot;, 22, 40, 48, 6, &quot;氢分流 →&quot;],
+          [&quot;belt&quot;, 22, 40, 48, 6, &quot;氢独立带 → 供给塔 / 裂解支线&quot;],
           [&quot;machine&quot;, 25, 50, 20, 16, &quot;裂解 ×4&quot;],
           [&quot;machine&quot;, 50, 50, 20, 16, &quot;重整 ×4&quot;],
-          [&quot;belt&quot;, 22, 70, 48, 6, &quot;← 精炼油 / 石墨&quot;],
+          [&quot;belt&quot;, 22, 70, 48, 6, &quot;精炼油独立带 → 供给塔&quot;],
+          [&quot;belt&quot;, 22, 78, 48, 6, &quot;高能石墨独立带 → 限量仓&quot;],
           [&quot;output&quot;, 76, 12, 18, 21, &quot;供给塔\n精炼油&quot;],
           [&quot;output&quot;, 76, 39, 18, 21, &quot;供给塔\n氢&quot;],
           [&quot;output&quot;, 76, 66, 18, 15, &quot;限量仓\n石墨&quot;],
           [&quot;power&quot;, 21, 20, 3, 46, &quot;电&quot;],
-          [&quot;aisle&quot;, 2, 86, 92, 8, &quot;按库存启停裂解 / 重整，不同时强开&quot;],
+          [&quot;aisle&quot;, 2, 88, 92, 6, &quot;三种产物绝不混带；按库存启停裂解 / 重整&quot;],
         ],
       },
       fractionator: {
         title: &quot;重氢闭环分馏模块&quot;,
         size: &quot;64×64 · L&quot;,
         io: &quot;输入：氢补料｜回流：未转化氢｜输出：重氢｜分馏环必须先闭合并跑满，再接重氢出口&quot;,
-        count: &quot;分馏塔 ×40；三速带、不堆叠、1% 期望值约 720 重氢/min。实际产量受回流饱和与统计波动影响。&quot;,
+        count: &quot;分馏塔 ×40；先把氢首尾闭成环，再把需求塔补氢口通过优先级分流器并入回流之后。重氢走独立右行带进入供给塔，绝不并入氢环。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 30, 17, 29, &quot;需求塔\n氢补料&quot;],
           [&quot;belt&quot;, 21, 13, 52, 7, &quot;氢闭环 →→→&quot;],
           [&quot;machine&quot;, 25, 24, 44, 15, &quot;分馏塔 ×20&quot;],
           [&quot;belt&quot;, 21, 43, 52, 7, &quot;←←← 氢回流&quot;],
           [&quot;machine&quot;, 25, 54, 44, 15, &quot;分馏塔 ×20&quot;],
-          [&quot;belt&quot;, 21, 73, 52, 7, &quot;重氢汇流 →&quot;],
+          [&quot;belt&quot;, 21, 73, 52, 7, &quot;重氢汇流 → 供给塔&quot;],
           [&quot;output&quot;, 77, 28, 17, 32, &quot;供给塔\n重氢&quot;],
           [&quot;power&quot;, 21, 24, 3, 45, &quot;电&quot;],
           [&quot;aisle&quot;, 2, 84, 92, 10, &quot;补氢口用优先级分流器维持满带&quot;],
@@ -1399,7 +1645,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;粒子对撞机模块&quot;,
         size: &quot;64×64 · L&quot;,
         io: &quot;需求：最多三种原料｜供给：重氢、奇异物质或反物质｜每种配方独立建块，不共用输入塔&quot;,
-        count: &quot;对撞机 ×8：奇异物质 60/min 正好用满 8 台；反物质 120/min 只启用 2 台。预留大功率供电。&quot;,
+        count: &quot;对撞机 ×8 排成一列，A/B/C 三条输入带在同一侧，独立成品带在另一侧；每台设备均直连 3 入 1 出。反物质配方的两种产物必须分带。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 8, 18, 31, &quot;需求塔\n原料 A / B / C&quot;],
           [&quot;belt&quot;, 23, 10, 47, 6, &quot;A →&quot;],
@@ -1407,7 +1653,7 @@ html&gt;body{padding:0}&lt;/style&gt;
           [&quot;belt&quot;, 23, 26, 47, 6, &quot;C →&quot;],
           [&quot;machine&quot;, 28, 38, 18, 18, &quot;对撞机 ×4&quot;],
           [&quot;machine&quot;, 52, 38, 18, 18, &quot;对撞机 ×4&quot;],
-          [&quot;belt&quot;, 23, 63, 47, 7, &quot;← 成品&quot;],
+          [&quot;belt&quot;, 23, 63, 47, 7, &quot;成品 → 供给塔&quot;],
           [&quot;power&quot;, 23, 38, 3, 38, &quot;高功率母线&quot;],
           [&quot;output&quot;, 77, 31, 17, 31, &quot;供给塔\n单一成品&quot;],
           [&quot;aisle&quot;, 2, 84, 92, 10, &quot;与普通制造区至少留一个模块宽度&quot;],
@@ -1417,36 +1663,34 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;科研矩阵模块&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：该颜色矩阵的直接组件｜供给：矩阵；科研区只需求矩阵，不与生产站混塔&quot;,
-        count: &quot;最多 30 座研究站，建议 3 列、每列 10 层；白糖 120/min 正好需要 30 座生产站。&quot;,
+        count: &quot;最多 30 座研究站，3 列、每列 10 层。组件 A/B 主干分别分到三个底层研究站；矩阵由三个底座的独立出口汇流后向右进入供给塔。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 8, 17, 30, &quot;需求塔\n组件&quot;],
-          [&quot;belt&quot;, 22, 10, 48, 7, &quot;组件 A →&quot;],
-          [&quot;belt&quot;, 22, 20, 48, 7, &quot;组件 B →&quot;],
+          [&quot;belt&quot;, 22, 10, 48, 7, &quot;组件 A 主干 → 三列支带&quot;],
+          [&quot;belt&quot;, 22, 20, 48, 7, &quot;组件 B 主干 → 三列支带&quot;],
           [&quot;machine&quot;, 27, 31, 12, 35, &quot;研究站\n×10&quot;],
           [&quot;machine&quot;, 44, 31, 12, 35, &quot;研究站\n×10&quot;],
           [&quot;machine&quot;, 61, 31, 12, 35, &quot;研究站\n×10&quot;],
-          [&quot;belt&quot;, 22, 70, 48, 7, &quot;← 矩阵&quot;],
+          [&quot;belt&quot;, 22, 70, 48, 7, &quot;三列矩阵汇流 → 供给塔&quot;],
           [&quot;output&quot;, 78, 29, 16, 31, &quot;供给塔\n矩阵&quot;],
           [&quot;power&quot;, 22, 31, 3, 35, &quot;电&quot;],
           [&quot;aisle&quot;, 2, 83, 92, 10, &quot;研究站向东复制，科研消费区另建&quot;],
         ],
       },
       &quot;white-science&quot;: {
-        title: &quot;宇宙矩阵 120/min&quot;,
+        title: &quot;五色糖直转宇宙矩阵 120/min&quot;,
         size: &quot;64×64 · L&quot;,
         io: &quot;需求：五色矩阵各 120/min、反物质 120/min｜供给：宇宙矩阵 120/min｜六种输入分两座塔&quot;,
-        count: &quot;研究站 ×30，三列各 10 层。六条输入带不得合流；白糖输出与科研消费区使用不同物流塔。&quot;,
+        count: &quot;研究站精确/实建 ×30，三列各 10 层。直接需求既有五色糖，禁止重复搭上游；每个底座北侧接蓝/红/黄三带，南侧接紫/绿/反物质三带，白糖由三个底座独立出带后汇流。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 5, 16, 28, &quot;需求塔 1\n蓝 / 红 / 黄&quot;],
           [&quot;input&quot;, 2, 45, 16, 28, &quot;需求塔 2\n紫 / 绿 / 反物质&quot;],
-          [&quot;belt&quot;, 21, 6, 49, 5, &quot;蓝 120 →&quot;],
-          [&quot;belt&quot;, 21, 13, 49, 5, &quot;红 120 →&quot;],
-          [&quot;belt&quot;, 21, 20, 49, 5, &quot;黄 120 →&quot;],
+          [&quot;belt&quot;, 21, 6, 49, 5, &quot;蓝 / 红 / 黄主干 → 三列北侧&quot;],
           [&quot;machine&quot;, 25, 30, 12, 31, &quot;研究站 ×10&quot;],
           [&quot;machine&quot;, 43, 30, 12, 31, &quot;研究站 ×10&quot;],
           [&quot;machine&quot;, 61, 30, 12, 31, &quot;研究站 ×10&quot;],
-          [&quot;belt&quot;, 21, 65, 49, 5, &quot;紫 / 绿 / 反物质：分层输入&quot;],
-          [&quot;belt&quot;, 21, 74, 49, 6, &quot;← 宇宙矩阵 120&quot;],
+          [&quot;belt&quot;, 21, 65, 49, 5, &quot;紫 / 绿 / 反物质主干 → 三列南侧&quot;],
+          [&quot;belt&quot;, 21, 74, 49, 6, &quot;三列宇宙矩阵汇流 → 供给塔&quot;],
           [&quot;output&quot;, 78, 29, 16, 33, &quot;供给塔\n白糖&quot;],
           [&quot;power&quot;, 21, 30, 3, 31, &quot;电&quot;],
           [&quot;aisle&quot;, 2, 86, 92, 8, &quot;东侧继续复制科研消费塔阵&quot;],
@@ -1456,33 +1700,33 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;临界光子与反物质模块&quot;,
         size: &quot;64×64 · L&quot;,
         io: &quot;需求：引力透镜；临界光子内部直送｜供给：反物质、氢｜戴森球能量不足时先减白糖，不堆接收站&quot;,
-        count: &quot;射线接收站 ×10 + 对撞机 ×2：持续接收时对应临界光子 120/min、反物质 120/min。&quot;,
+        count: &quot;射线接收站 ×10 + 对撞机 ×2。临界光子只在模块内部进入对撞机；对撞机的反物质和氢分别用两根分拣器送入两条独立右行带与两座供给塔。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 8, 17, 25, &quot;需求塔\n引力透镜&quot;],
           [&quot;belt&quot;, 22, 10, 49, 6, &quot;引力透镜 →&quot;],
           [&quot;machine&quot;, 26, 21, 42, 18, &quot;射线接收站 ×10&quot;],
           [&quot;belt&quot;, 22, 44, 49, 7, &quot;临界光子 120 →&quot;],
           [&quot;machine&quot;, 35, 57, 25, 18, &quot;对撞机 ×2&quot;],
-          [&quot;belt&quot;, 22, 79, 49, 6, &quot;← 反物质 / 氢&quot;],
+          [&quot;belt&quot;, 22, 79, 49, 6, &quot;反物质 → 独立供给塔&quot;],
+          [&quot;belt&quot;, 22, 87, 49, 6, &quot;氢 → 独立供给塔&quot;],
           [&quot;output&quot;, 77, 25, 17, 22, &quot;供给塔\n反物质&quot;],
           [&quot;output&quot;, 77, 55, 17, 22, &quot;供给塔\n氢&quot;],
           [&quot;power&quot;, 72, 20, 3, 58, &quot;高功率母线&quot;],
-          [&quot;aisle&quot;, 2, 89, 92, 5, &quot;接收站放在持续照射区；两种成品分塔&quot;],
+          [&quot;aisle&quot;, 2, 94, 92, 4, &quot;接收站放持续照射区；两种成品禁止混带&quot;],
         ],
       },
       broadband: {
         title: &quot;粒子宽带 120/min&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：碳纳米管 240/min、晶格硅 240/min、塑料 120/min｜供给：粒子宽带 120/min&quot;,
-        count: &quot;制造台 Mk.II ×16。三条输入带从北侧进入，成品带从南侧返回输出塔。&quot;,
+        count: &quot;制造台 Mk.II ×16，拆成两个完整 8 台子块。三条输入主干分别一分二送入两块，每块具备纳米管、晶格硅、塑料与成品四条带，两个成品支带在塔前汇流。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 6, 18, 32, &quot;需求塔\n纳米管 / 晶格硅 / 塑料&quot;],
-          [&quot;belt&quot;, 23, 8, 48, 6, &quot;纳米管 240 →&quot;],
-          [&quot;belt&quot;, 23, 16, 48, 6, &quot;晶格硅 240 →&quot;],
-          [&quot;belt&quot;, 23, 24, 48, 6, &quot;塑料 120 →&quot;],
-          [&quot;machine&quot;, 29, 35, 36, 17, &quot;制造台 ×8&quot;],
-          [&quot;machine&quot;, 29, 57, 36, 17, &quot;制造台 ×8&quot;],
-          [&quot;belt&quot;, 23, 77, 48, 6, &quot;← 粒子宽带 120&quot;],
+          [&quot;belt&quot;, 23, 8, 48, 6, &quot;三种输入主干 → 各分两支&quot;],
+          [&quot;machine&quot;, 29, 23, 36, 17, &quot;子块 1 · 制造台 ×8\n三输入 + 成品输出&quot;],
+          [&quot;belt&quot;, 23, 45, 48, 6, &quot;子块 1 成品 → 汇流&quot;],
+          [&quot;machine&quot;, 29, 56, 36, 17, &quot;子块 2 · 制造台 ×8\n三输入 + 成品输出&quot;],
+          [&quot;belt&quot;, 23, 77, 48, 6, &quot;两支粒子宽带汇流 → 供给塔&quot;],
           [&quot;power&quot;, 23, 35, 3, 39, &quot;电&quot;],
           [&quot;output&quot;, 77, 33, 17, 31, &quot;供给塔\n粒子宽带&quot;],
           [&quot;aisle&quot;, 2, 87, 92, 7, &quot;检修通道&quot;],
@@ -1491,18 +1735,18 @@ html&gt;body{padding:0}&lt;/style&gt;
       logistics: {
         title: &quot;物流硬件补货模块&quot;,
         size: &quot;64×64 · L&quot;,
-        io: &quot;需求：钢、钛块、处理器、粒子容器、钛合金、推进器｜供给：塔、运输机、运输船&quot;,
-        count: &quot;每种成品独立小仓并限量：行星塔 6、星际塔 2、运输机 100、运输船 20；不要无限生产。&quot;,
+        io: &quot;需求：钢、钛块、处理器、粒子容器、钛合金、推进器｜缓存：行星塔、星际塔、运输机、运输船分别入四个限量箱&quot;,
+        count: &quot;六种组件走独立主干，只在对应配方前分支；四种成品禁止混带、禁止共箱。建议上限：行星塔 6、星际塔 2、运输机 100、运输船 20。&quot;,
         pieces: [
           [&quot;input&quot;, 2, 8, 17, 31, &quot;需求塔 1\n钢 / 钛 / 处理器&quot;],
           [&quot;input&quot;, 2, 48, 17, 31, &quot;需求塔 2\n容器 / 合金 / 推进器&quot;],
-          [&quot;belt&quot;, 22, 10, 49, 7, &quot;公共组件走廊 →&quot;],
+          [&quot;belt&quot;, 22, 10, 49, 7, &quot;六条组件主干 → 按配方分支&quot;],
           [&quot;machine&quot;, 25, 22, 20, 18, &quot;行星塔\n1 台&quot;],
           [&quot;machine&quot;, 51, 22, 20, 18, &quot;星际塔\n1 台&quot;],
           [&quot;machine&quot;, 25, 49, 20, 18, &quot;运输机\n2 台&quot;],
           [&quot;machine&quot;, 51, 49, 20, 18, &quot;运输船\n1 台&quot;],
-          [&quot;belt&quot;, 22, 72, 49, 7, &quot;← 成品入限量仓&quot;],
-          [&quot;output&quot;, 77, 25, 17, 40, &quot;供给塔\n仅建筑超市&quot;],
+          [&quot;belt&quot;, 22, 72, 49, 7, &quot;四条成品支带 → 各自限量箱&quot;],
+          [&quot;output&quot;, 77, 25, 17, 40, &quot;四个独立限量箱\n塔 / 星际塔 / 机 / 船&quot;],
           [&quot;power&quot;, 73, 22, 2, 45, &quot;电&quot;],
           [&quot;aisle&quot;, 2, 84, 92, 9, &quot;每个成品箱设置库存上限&quot;],
         ],
@@ -1511,13 +1755,13 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;太阳帆 120/min&quot;,
         size: &quot;32×32 · S&quot;,
         io: &quot;需求：石墨烯 60/min、光子合并器 60/min｜供给：太阳帆 120/min&quot;,
-        count: &quot;制造台 Mk.II ×4。成品塔可同时服务多个弹射器，但供给槽只放太阳帆。&quot;,
+        count: &quot;制造台 Mk.II ×4。两条输入带放在制造台一侧，太阳帆独立带放另一侧并向右入塔；供给塔只设置太阳帆。&quot;,
         pieces: [
           [&quot;input&quot;, 3, 9, 19, 33, &quot;需求塔\n石墨烯 / 光子合并器&quot;],
           [&quot;belt&quot;, 25, 12, 45, 7, &quot;石墨烯 60 →&quot;],
           [&quot;belt&quot;, 25, 22, 45, 7, &quot;光子合并器 60 →&quot;],
           [&quot;machine&quot;, 31, 36, 34, 17, &quot;制造台 ×4&quot;],
-          [&quot;belt&quot;, 25, 58, 45, 7, &quot;← 太阳帆 120&quot;],
+          [&quot;belt&quot;, 25, 58, 45, 7, &quot;太阳帆 120 → 供给塔&quot;],
           [&quot;power&quot;, 25, 36, 3, 17, &quot;电&quot;],
           [&quot;output&quot;, 76, 31, 19, 33, &quot;供给塔\n太阳帆&quot;],
           [&quot;aisle&quot;, 3, 74, 92, 13, &quot;南侧接弹射器物流区&quot;],
@@ -1527,14 +1771,14 @@ html&gt;body{padding:0}&lt;/style&gt;
         title: &quot;小型运载火箭 10/min&quot;,
         size: &quot;32×32 · S&quot;,
         io: &quot;需求：戴森球组件 20/min、氘核燃料棒 40/min、量子芯片 20/min｜供给：小型运载火箭 10/min&quot;,
-        count: &quot;制造台 Mk.II ×1。低速高价值，使用限量仓缓冲；原料不与太阳帆模块共塔。&quot;,
+        count: &quot;制造台 Mk.II ×1。三条输入带放一侧，火箭独立带放另一侧并向右进入供给塔；塔内限制库存，原料不与太阳帆模块共塔。&quot;,
         pieces: [
           [&quot;input&quot;, 3, 8, 20, 36, &quot;需求塔\n组件 / 燃料棒 / 量子芯片&quot;],
           [&quot;belt&quot;, 26, 10, 43, 7, &quot;戴森球组件 20 →&quot;],
           [&quot;belt&quot;, 26, 20, 43, 7, &quot;氘核燃料棒 40 →&quot;],
           [&quot;belt&quot;, 26, 30, 43, 7, &quot;量子芯片 20 →&quot;],
           [&quot;machine&quot;, 38, 44, 22, 18, &quot;制造台 ×1&quot;],
-          [&quot;belt&quot;, 26, 67, 43, 7, &quot;← 火箭 10&quot;],
+          [&quot;belt&quot;, 26, 67, 43, 7, &quot;小型火箭 10 → 供给塔&quot;],
           [&quot;power&quot;, 32, 44, 3, 18, &quot;电&quot;],
           [&quot;output&quot;, 76, 31, 19, 34, &quot;供给塔\n小型火箭&quot;],
           [&quot;aisle&quot;, 3, 81, 92, 10, &quot;南侧接垂直发射井区&quot;],
@@ -1543,37 +1787,141 @@ html&gt;body{padding:0}&lt;/style&gt;
       energy: {
         title: &quot;蓄电器能量枢纽&quot;,
         size: &quot;64×64 · L&quot;,
-        io: &quot;需求：空蓄电器｜供给：满蓄电器｜充电与放电区物理分开，避免本地无意义循环&quot;,
-        count: &quot;能量枢纽 ×24：充电 12、放电 12。发电星只启用充电组，用电星只启用放电组。&quot;,
+        io: &quot;充电星：需求空蓄电器 → 供给满蓄电器｜用电星：需求满蓄电器 → 供给空蓄电器｜两套传送带绝不相连&quot;,
+        count: &quot;上半图是充电端，下半图是放电端；应分别建在发电星和用电星。每端最多 12 座能量枢纽，四个塔槽状态必须按满/空方向配置。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 9, 18, 29, &quot;需求塔\n空蓄电器&quot;],
-          [&quot;belt&quot;, 23, 11, 47, 6, &quot;空蓄电器 →&quot;],
-          [&quot;machine&quot;, 28, 23, 38, 17, &quot;充电枢纽 ×12&quot;],
-          [&quot;belt&quot;, 23, 44, 47, 6, &quot;满蓄电器 →&quot;],
-          [&quot;machine&quot;, 28, 56, 38, 17, &quot;放电枢纽 ×12&quot;],
-          [&quot;belt&quot;, 23, 77, 47, 6, &quot;← 空蓄电器回收&quot;],
-          [&quot;output&quot;, 77, 27, 17, 33, &quot;供给塔\n满 / 空分槽&quot;],
-          [&quot;power&quot;, 23, 23, 3, 50, &quot;电网接口&quot;],
-          [&quot;aisle&quot;, 2, 87, 92, 7, &quot;同一星球不要同时闭环充放电&quot;],
+          [&quot;input&quot;, 2, 6, 18, 24, &quot;充电端需求塔\n空蓄电器&quot;],
+          [&quot;belt&quot;, 23, 9, 47, 6, &quot;空蓄电器 →&quot;],
+          [&quot;machine&quot;, 28, 20, 38, 15, &quot;充电枢纽 ×12&quot;],
+          [&quot;belt&quot;, 23, 38, 47, 6, &quot;满蓄电器 →&quot;],
+          [&quot;output&quot;, 77, 12, 17, 27, &quot;充电端供给塔\n满蓄电器&quot;],
+          [&quot;input&quot;, 2, 55, 18, 24, &quot;放电端需求塔\n满蓄电器&quot;],
+          [&quot;belt&quot;, 23, 58, 47, 6, &quot;满蓄电器 →&quot;],
+          [&quot;machine&quot;, 28, 69, 38, 15, &quot;放电枢纽 ×12&quot;],
+          [&quot;belt&quot;, 23, 87, 47, 6, &quot;空蓄电器 →&quot;],
+          [&quot;output&quot;, 77, 61, 17, 27, &quot;放电端供给塔\n空蓄电器&quot;],
+          [&quot;power&quot;, 72, 20, 3, 64, &quot;电网接口&quot;],
+          [&quot;aisle&quot;, 2, 94, 92, 4, &quot;禁止把上下两端传送带连接成本地循环&quot;],
         ],
       },
       power: {
         title: &quot;进口燃料电站模块&quot;,
         size: &quot;32×64 · M&quot;,
         io: &quot;需求：氘核燃料棒或反物质燃料棒｜输出：电力｜电站燃料塔不兼作生产原料塔&quot;,
-        count: &quot;发电设备 ×12；中期放聚变电站，后期整块替换为人造恒星。复制前确保燃料棒库存能覆盖 30 分钟。&quot;,
+        count: &quot;发电设备 ×12 分两排，中央共享一条燃料带；需求塔从左侧出料，上下两排都直接取用。塔后接限量缓存箱，复制前确保库存可覆盖 30 分钟。&quot;,
         pieces: [
-          [&quot;input&quot;, 2, 10, 18, 30, &quot;需求塔\n单一燃料棒&quot;],
-          [&quot;belt&quot;, 23, 13, 48, 7, &quot;燃料棒 →&quot;],
-          [&quot;machine&quot;, 28, 26, 38, 16, &quot;发电设备 ×6&quot;],
-          [&quot;machine&quot;, 28, 49, 38, 16, &quot;发电设备 ×6&quot;],
-          [&quot;belt&quot;, 23, 69, 48, 7, &quot;维护通道&quot;],
-          [&quot;power&quot;, 22, 26, 3, 39, &quot;主电网&quot;],
-          [&quot;output&quot;, 77, 31, 17, 29, &quot;燃料塔\n30 分钟库存&quot;],
+          [&quot;input&quot;, 2, 29, 18, 30, &quot;需求塔\n单一燃料棒&quot;],
+          [&quot;machine&quot;, 28, 15, 38, 16, &quot;上排发电设备 ×6&quot;],
+          [&quot;belt&quot;, 23, 38, 48, 7, &quot;燃料棒 → 两排共享&quot;],
+          [&quot;machine&quot;, 28, 50, 38, 16, &quot;下排发电设备 ×6&quot;],
+          [&quot;power&quot;, 22, 15, 3, 51, &quot;主电网&quot;],
+          [&quot;output&quot;, 77, 31, 17, 29, &quot;限量缓存箱\n30 分钟燃料&quot;],
           [&quot;aisle&quot;, 2, 82, 92, 11, &quot;东侧复制；与对撞机区分开供电观察&quot;],
         ],
       },
     };
+
+    const stageByBlueprint = {
+      starter: 0,
+      &quot;bus-market&quot;: 2,
+      &quot;blue-line&quot;: 1,
+      defense: 1,
+      &quot;red-line&quot;: 2,
+      &quot;first-trip&quot;: 3,
+      &quot;yellow-line&quot;: 3,
+      &quot;tower-switch&quot;: 4,
+      outpost: 4,
+      orbital: 5,
+      smelt: 4,
+      alloy: 4,
+      &quot;two-input&quot;: 4,
+      &quot;three-input&quot;: 5,
+      &quot;multi-input&quot;: 6,
+      chemical: 4,
+      refinery: 2,
+      fractionator: 5,
+      collider: 5,
+      science: 5,
+      &quot;white-science&quot;: 6,
+      photons: 6,
+      broadband: 5,
+      logistics: 4,
+      sails: 6,
+      rockets: 6,
+      energy: 7,
+      power: 7,
+    };
+
+    const stagePlans = {
+      all: {
+        title: &quot;推荐顺序：先主线，通用模板按需查&quot;,
+        now: &quot;母星总图 → 蓝糖 60 → 黑雾防线 → 三矿总线超市 → 红糖 60 → 首次钛硅 → 黄糖 60 → 物流塔切换 → 紫/绿糖 → 太阳帆/戴森云 → 临界光子与反物质 → 五色转白糖 → 火箭。&quot;,
+        gate: &quot;每次只拍当前阶段列出的块；上一阶段验收全部通过才进入下一阶段。冶炼、双/三/多原料等通用图是附录，不要求一次建齐。&quot;,
+      },
+      0: { title: &quot;阶段 0｜落地：只做可持续起步&quot;, now: &quot;只拍：母星总图；缺锭时参考单产物冶炼小块。&quot;, gate: &quot;离开条件：铁/铜自动采集，铁/铜/磁铁至少各 1 条稳定小线，电网无持续黄条。&quot; },
+      1: { title: &quot;阶段 1｜蓝糖与第一道防线&quot;, now: &quot;只拍：蓝糖 60 + 前期黑雾防线。不要为了整齐推倒起步线。&quot;, gate: &quot;离开条件：蓝糖连续 5 分钟 ≥60/min；机枪塔 4 座均能取弹；机枪弹箱库存 ≥200。&quot; },
+      2: { title: &quot;阶段 2｜红糖与可生长的建筑超市&quot;, now: &quot;只拍：三矿总线超市的“带/爪”首段，再按科技追加建筑段；红糖先定量、400 枚后切裂解。&quot;, gate: &quot;离开条件：带 135/min、爪 45/min；红糖稳定 60/min；精炼油与氢各有独立储罐且不堵副产物。&quot; },
+      3: { title: &quot;阶段 3｜第一次离星与黄糖定量&quot;, now: &quot;只拍：首次钛硅外运前哨 + 黄糖 60；黄糖先取 200 枚，不追求永久化。&quot;, gate: &quot;离开条件：带回钛块 ≥2,000、高纯硅块 ≥800；黄糖累计 ≥200；已预留两座星际塔物料。&quot; },
+      4: { title: &quot;阶段 4｜物流塔接管&quot;, now: &quot;只拍：物流塔切换 + 物流硬件；随后按瓶颈从冶炼、双输入、合金、化工中选一张复制。&quot;, gate: &quot;离开条件：钛航线无人值守运行 10 分钟；任一新黑盒输入、成品均通过塔；旧线停供后库存仍增长。&quot; },
+      5: { title: &quot;阶段 5｜紫绿糖与高吞吐支链&quot;, now: &quot;按需拍：科研矩阵、粒子宽带、分馏、粒子对撞、三原料；先让绿糖供应翘曲器。&quot;, gate: &quot;离开条件：五色糖均能独立供应；绿糖/翘曲器不断供；氢、重氢、精炼油没有互相堵塞。&quot; },
+      6: { title: &quot;阶段 6｜戴森云、临界光子与白糖&quot;, now: &quot;依次拍：太阳帆 → 小型戴森云 → 临界光子/反物质 → 五色糖直转白糖；上游有余量后最后拍小型火箭。太阳帆上游默认使用玻璃→棱镜→光子合并器的无珍奇路线。&quot;, gate: &quot;最低离开条件：白糖稳定 30/min，反物质/氢分塔；舒适条件：白糖 120/min，太阳帆与火箭各自限量缓存。&quot; },
+      7: { title: &quot;阶段 7｜跨星系复制&quot;, now: &quot;按需拍：资源前哨、轨道采集、能量枢纽或燃料电站；把工厂拆成可独立复制的星球级模块。&quot;, gate: &quot;完成标准：新星球只需落下一座接入超市的星际塔，即可自动叫来建筑、燃料和翘曲器。&quot; },
+    };
+
+    const makeProfile = (unlock, logistics, steps, checks, life) =&gt; ({
+      unlock,
+      logistics,
+      steps: steps.split(&quot;｜&quot;),
+      checks: checks.split(&quot;｜&quot;),
+      life,
+    });
+
+    const profiles = {
+      starter: makeProfile(&quot;阶段 0；电磁学、自动化冶金、基础物流。&quot;, &quot;所有临时主干西→东；支线只向南；箱子限格。&quot;, &quot;先圈出赤道生产带和极区电力带｜矿区就地铺铁/铜/磁铁小线｜预留南侧化工和东侧扩建空地&quot;, &quot;任一支线停机不影响其他区｜总线末端仍有延长空间&quot;, &quot;物流塔解锁后逐块迁移；新黑盒稳定 5 分钟再拆旧块。&quot;),
+      &quot;bus-market&quot;: makeProfile(&quot;阶段 2；基础物流、基础制造、钢材/石材相关建筑按科技逐段追加。&quot;, &quot;底部铁/铜/石三矿线均西→东；每段向北取料；每个成品独立限量箱。&quot;, &quot;先铺三条平行矿线并在东端留接口｜先拍传送带 135/min 与分拣器 45/min 两段｜再按解锁顺序添加电力、采矿、冶炼、制造和防御段&quot;, &quot;抽掉任意一段成品不会让总线倒流｜所有箱子已限格且能步行快速找到&quot;, &quot;保留到星际超市能配送建筑；之后停输入自然排空，不要原地改成永久大总线。&quot;),
+      &quot;blue-line&quot;: makeProfile(&quot;阶段 1；电磁矩阵与矩阵研究站。&quot;, &quot;铁/铜矿从左进；组件各走一条右行带；蓝糖进箱或科研站，不回基础材料线。&quot;, &quot;先建 1 铁、2 磁铁、1 铜熔炉｜再建电路板与磁线圈 Mk.I 各 1｜最后接 3 座研究站并设为矩阵生产&quot;, &quot;统计面板 5 分钟平均 ≥60/min｜磁铁熔炉不长期缺矿且蓝糖不因分拣器卡顿&quot;, &quot;塔后直接复制为 120/min；旧线可继续给科技，不必拆。&quot;),
+      defense: makeProfile(&quot;阶段 1；武器系统、高斯机枪塔。&quot;, &quot;弹药由箱进入单向环；4 塔都从环取弹；射界朝黑雾基地。&quot;, &quot;在基地靠黑雾一侧清空射界｜摆 4 塔后再围弹药环｜箱内放至少 200 弹并逐塔确认装填&quot;, &quot;警报来时四塔弹药不为 0｜敌军不会绕入生产区&quot;, &quot;扩张后移到外围；中后期换导弹/信号塔体系，旧机枪线排空后拆。&quot;),
+      &quot;red-line&quot;: makeProfile(&quot;阶段 2；先用等离子精炼攒 400 红糖，再解锁 X 射线裂解。&quot;, &quot;精炼油、循环氢、净氢、石墨四线分开；优先级分流器让回流氢先进入裂解。&quot;, &quot;先用储罐缓存精炼油和氢｜拍 8 精炼厂裂解段并手填 40–60 氢启动｜最后接 6 研究站；多余氢另存或受控发电&quot;, &quot;裂解环不会因缺启动氢停机｜红糖平均 ≥60/min，精炼油/氢储罐均不满堵&quot;, &quot;轨道氢稳定后可改成直接氢 + 煤制石墨；裂解段保留为应急，不与黄糖油路硬耦合。&quot;),
+      &quot;first-trip&quot;: makeProfile(&quot;阶段 3；驱动引擎 2、钛/硅冶炼；出发前带足风电、矿机、带爪、箱子和 4 塔防御。&quot;, &quot;钛、硅各自矿带→熔炉→锭带→箱；两种物料不混带、不共箱。&quot;, &quot;先找钛矿落地并铺电与防线｜建立钛锭线，再补硅锭线｜等待钛块 2,000、硅块 800 后一次运回&quot;, &quot;两个目标箱分别达标｜返航燃料与机甲能量有余量&quot;, &quot;星际塔通线后，把箱替换为供给塔；熔炉可继续作为矿星前哨。&quot;),
+      &quot;yellow-line&quot;: makeProfile(&quot;阶段 3；结构矩阵，目标是先解锁钛合金与星际物流。&quot;, &quot;原油、煤、水、钛各自进线；精炼油/氢分输出；黄糖只进限量箱。&quot;, &quot;先搭 10 精炼与独立油氢储罐｜依次接塑料、有机晶体、钛晶石和金刚石｜最后接 8 研究站，先取 200 黄糖&quot;, &quot;60/min 连续运行且任一副产罐不满｜钛块仍留足两座星际塔，不被黄糖吃光&quot;, &quot;星际有机晶体开矿后，停掉耗油有机晶体段；塑料段转供紫糖，黄糖改为珍奇直供。&quot;),
+      &quot;tower-switch&quot;: makeProfile(&quot;阶段 4；星际物流系统。&quot;, &quot;矿星塔：钛块星际供应、无需船；母星塔：钛块星际需求、本地供应、通电并放 10 船。&quot;, &quot;先造 2 塔与 10 船并核对物料预算｜先配置矿星供应塔，再配置母星需求塔｜钛流稳定后新建黑盒，停旧线输入，观察 5 分钟再拆&quot;, &quot;母星塔库存能自动回升｜旧线停供时新模块仍稳定出货&quot;, &quot;以后不原地升级旧线；复制标准块、切换塔状态、确认新块稳定后再拆旧块。&quot;),
+      outpost: makeProfile(&quot;阶段 4 起；星际物流与行星防御。&quot;, &quot;矿机汇流只进矿带；若就地冶炼，矿带止于熔炉，另建锭带进单一产物供给塔。&quot;, &quot;先落电力和防线｜覆盖矿脉并汇流｜二选一：矿直供或就地炼锭，最后接供给塔&quot;, &quot;塔中只有一种物料｜矿石与锭从未出现在同一条带&quot;, &quot;运力紧张时就地加工高压缩物；矿枯竭后回收塔和防御，保留电力骨架。&quot;),
+      orbital: makeProfile(&quot;阶段 5；气态行星开采。&quot;, &quot;采集器直接被星际运输船提取，无地面带；需求端按氢/重氢/可燃冰分槽。&quot;, &quot;准备 40 座轨道采集器｜沿赤道连续铺满一圈｜环绕复查漏放后再配置需求塔&quot;, &quot;计数 40/40｜需求塔运输船能持续取货&quot;, &quot;先满一颗再开下一颗；白糖后优先高产巨星。&quot;),
+      smelt: makeProfile(&quot;阶段 4 通用附录；物流塔可用后。&quot;, &quot;左塔需求矿、向右出矿；中央矿带与成品带都向右；成品带直接插入右侧供给塔。&quot;, &quot;先接左塔矿石出口｜铺中间两条同向带并放上下各 12 熔炉｜逐台接 1 入 1 出，最后把成品带插入右塔&quot;, &quot;上下 24 台均能取矿｜右塔仅出现成品，无矿石串入&quot;, &quot;整数 24 台标准块整体复制；高纯硅/钛产速为 720/min，铁铜石为 1,440/min，按配方核带宽。&quot;),
+      alloy: makeProfile(&quot;阶段 4；钛合金等多输入熔炉配方。&quot;, &quot;需求塔三口分别出钛/钢/硫酸并全向右；成品第四带向右进独立供给塔。&quot;, &quot;先铺 3 输入 + 1 成品四条带｜放 12 熔炉并逐台接 3 入 1 出｜最后接供给塔并逐槽核物料名&quot;, &quot;每台都有四根分拣器｜任一输入断供不会把其他物料送进成品塔&quot;, &quot;扩产只复制完整四带子块；不得把第二排仅接到部分原料。&quot;),
+      &quot;two-input&quot;: makeProfile(&quot;阶段 4；任意两原料制造配方。&quot;, &quot;左需求塔 A、B 两端口分别右行；中央固定 A / 成品 / B；上下两排镜像；成品中带右行插入供给塔。&quot;, &quot;先从左塔拉 A 与 B 两带｜在两带之间铺独立成品带，放上下各 12 台｜每台接 A 入、B 入、成品出，成品塔设本地供应&quot;, &quot;下排 12 台同样能同时取得 A/B｜右塔只有成品，三带箭头全部向右&quot;, &quot;配方吞吐超过带宽时复制整块；不要从右塔反向拉成品带。&quot;),
+      &quot;three-input&quot;: makeProfile(&quot;阶段 5；卡西米尔晶体、钛化玻璃、框架材料等。&quot;, &quot;左需求塔 A/B/C 三口都右行；北侧 A/B，南侧 C/成品；成品最外带右行进右塔。&quot;, &quot;先铺 A/B 两北带与 C/成品两南带｜放单排 8 台，每台接 3 入 1 出｜最高吞吐原料放内侧，塔前只汇成品&quot;, &quot;8 台每台都能取得 A/B/C｜任意原料带断流时成品带无异物&quot;, &quot;扩到 32 台必须复制 4 个完整四带子块，在塔口分流、塔前汇流。&quot;),
+      &quot;multi-input&quot;: makeProfile(&quot;阶段 6；四至五输入配方。&quot;, &quot;塔 1 需求 A/B/C，塔 2 需求 D/E，右侧第 3 塔/限量仓只收成品；不存在“一个塔装五输入再装输出”的第六槽。&quot;, &quot;先放两座需求塔并拉出五条右行输入带｜北 A/B/C、南 D/E，中间单排 4 台｜每台接 5 入 1 出，成品独立右行进入第三塔或限量仓&quot;, &quot;共 6 条带均能追溯到唯一槽位｜成品绝不反向穿过需求塔，五输入也不混带&quot;, &quot;复杂建筑默认只启用 1 台；量产燃料棒时再整体复制六带子块。&quot;),
+      chemical: makeProfile(&quot;阶段 4；化工厂与对应配方。&quot;, &quot;全部固体/液体输入主干分给上下两个 8 台子块；主、副产物分带进不同供给槽/塔。&quot;, &quot;先铺所有输入主干并一分二｜建上、下两个完整 8 台子块｜分别汇主产与副产，先验证副产出口再全开&quot;, &quot;上下块都能取得每种输入｜主副产不混带且副产塔不会满堵&quot;, &quot;副产消耗不足时限速生产而非烧掉关键物；珍奇配方解锁后另建新块替换。&quot;),
+      refinery: makeProfile(&quot;阶段 2 起；等离子精炼、X 射线裂解、重整精炼。&quot;, &quot;原油/煤输入独立；精炼油、氢、石墨三条输出独立；裂解与重整分组开关。&quot;, &quot;先建 8 台等离子精炼和油氢双罐｜再建裂解/重整分组但保持关闭｜按库存只开启需要的一组并观察 5 分钟&quot;, &quot;三个输出都不堵｜切换分组时不存在氢反灌或油路混线&quot;, &quot;轨道氢/硫酸海接入后逐步停临时裂解和本地硫酸，但保留应急开关。&quot;),
+      fractionator: makeProfile(&quot;阶段 5；分馏技术与高速带。&quot;, &quot;未转化氢首尾闭环；需求塔补氢在回流之后并入；重氢单独右行进供给塔。&quot;, &quot;先闭合氢环并跑满｜放 40 分馏塔并逐台接环｜最后接补氢优先级与重氢出口&quot;, &quot;环上氢始终满带｜重氢塔内没有氢，补料不会冲断回流优先级&quot;, &quot;优先升级环带速度；复制整环，不把两个环串成长蛇。&quot;),
+      collider: makeProfile(&quot;阶段 5；粒子对撞机。&quot;, &quot;A/B/C 三输入独立右行；普通配方成品单带；反物质配方必须把反物质与氢分成两条右行输出。&quot;, &quot;先铺高功率电网｜铺输入带并放 8 对撞机｜按配方接独立输出；反物质时另加氢带与第二塔&quot;, &quot;满负载电网不黄｜反物质与氢绝不混带/共槽&quot;, &quot;与普通制造区留一块宽度；先补电再复制。&quot;),
+      science: makeProfile(&quot;阶段 1–5 通用；对应颜色矩阵科技。&quot;, &quot;组件主干分别分到每个底层研究站；矩阵由各底座独立出带，塔前汇流向右。&quot;, &quot;先放 3 个底层研究站并接全组件｜每列向上堆到目标层数｜三条矩阵支带塔前汇流&quot;, &quot;三列底座都同时取料｜任一列拆除不切断其余两列输出&quot;, &quot;蓝/红后续扩到 120/min；紫绿独立塔供给，科研消费区另建。&quot;),
+      &quot;white-science&quot;: makeProfile(&quot;阶段 6；任务完成后解锁宇宙矩阵。&quot;, &quot;塔 1 需求蓝/红/黄，塔 2 需求紫/绿/反物质；六条输入分到三列，白糖右行进入唯一供给塔。&quot;, &quot;确认五色糖各有 ≥120/min 余量｜放两座需求塔、六输入与 3 个底层研究站｜堆到每列 10 层，最后接白糖供给塔&quot;, &quot;六种输入都能到达三列｜白糖 5 分钟平均 ≥120/min 且没有重建五色上游&quot;, &quot;白糖不足先扩对应颜色黑盒；按 120/min 整块复制，不拆五色糖线。&quot;),
+      photons: makeProfile(&quot;阶段 6；戴森球发电、射线接收站、狄拉克逆变。&quot;, &quot;透镜右行进接收站；临界光子内部直送对撞机；反物质和氢分别右行进两座供给塔。&quot;, &quot;先在持续照射区放 10 接收站｜接透镜并确认临界光子 ≥120/min｜放 2 对撞机，分别接反物质与氢出口&quot;, &quot;两座出口塔物料名不同｜戴森球供能不足时接收站不是全部低功率抖动&quot;, &quot;供能不足先降白糖负载；球功率增长后再复制接收站块。&quot;),
+      broadband: makeProfile(&quot;阶段 5；信息矩阵支链。&quot;, &quot;纳米管/晶格硅/塑料三主干都一分二；两个 8 台子块各自全输入，成品支带塔前汇流。&quot;, &quot;先分三条输入到上下两块｜各放 8 台 Mk.II 并逐台接 3 入 1 出｜只在右塔前合并两条成品支带&quot;, &quot;上下块同时满载｜粒子宽带 ≥120/min，无任一原料只供到一半机器&quot;, &quot;珍奇刺笋/分形硅接入后另换上游，宽带块本体不动。&quot;),
+      logistics: makeProfile(&quot;阶段 4；行星/星际物流及运输机船。&quot;, &quot;六组件按配方分支；四种成品各走独立支带与独立限量箱。&quot;, &quot;先设置四个限量箱｜再放塔、星际塔、运输机、运输船各自制造台｜逐条连接组件，不允许共用成品带&quot;, &quot;四箱物料完全不同｜建议库存：行星塔 6、星际塔 2、运输机 100、运输船 20&quot;, &quot;接入星际超市后继续保留；库存上限只随扩张速度调整。&quot;),
+      sails: makeProfile(&quot;阶段 6；太阳帆与电磁轨道弹射器。&quot;, &quot;石墨烯/光子合并器右行输入；太阳帆独立右行进供给塔，塔只供应太阳帆。默认无珍奇上游：玻璃 180 → 棱镜 120 → 光子合并器 60；有稳定光栅石后可改为光栅石 60 + 电路板 60。&quot;, &quot;先确认石墨烯与合并器各 ≥60/min｜无珍奇时先接玻璃→棱镜→合并器上游｜放 Mk.II ×4 并接 2 入 1 出｜塔内限量后再连接弹射器区&quot;, &quot;输出 5 分钟平均 ≥120/min｜弹射器停机时不会吃满全厂库存&quot;, &quot;先由戴森壳吸收能力决定是否扩帆；有稳定光栅石时只替换合并器上游，不拆太阳帆块。&quot;),
+      rockets: makeProfile(&quot;阶段 6；垂直发射井、小型运载火箭。&quot;, &quot;三输入右行；火箭独立右行入供给塔；不与太阳帆共塔。&quot;, &quot;确认组件 20、氘棒 40、量子芯片 20/min｜放 Mk.II ×1 接 3 入 1 出｜限制火箭库存并接发射井区&quot;, &quot;输出 ≥10/min｜三种上游在满载时仍有余量&quot;, &quot;按 10/min 小块复制；先扩最短缺上游，不在旧块里塞机器。&quot;),
+      energy: makeProfile(&quot;阶段 7；能量枢纽与星际运输。&quot;, &quot;充电星：空需求→满供应；用电星：满需求→空供应；上下两套带永不相连。&quot;, &quot;分别在两颗星球建设充/放端｜每端核对塔槽方向后再放 12 枢纽｜小批蓄电器试跑一圈再扩大库存&quot;, &quot;空/满蓄电器不会在本地短路循环｜两端库存能随负载正确涨落&quot;, &quot;反物质供能稳定后可逐星停用；先停需求，排空后回收蓄电器。&quot;),
+      power: makeProfile(&quot;阶段 7；氘核或反物质燃料棒与对应发电设施。&quot;, &quot;单一燃料需求塔向右出带；上下两排共享中央燃料带；缓存仅存同种燃料。&quot;, &quot;先在塔内备足 30 分钟燃料｜铺中央带并放上下各 6 发电设备｜满负载观察电网后再复制&quot;, &quot;上下两排均不断燃料｜满载仍有 ≥20% 发电余量&quot;, &quot;更换燃料类型时新建完整电站块，切塔后再拆旧块，禁止混烧造成难以核算。&quot;),
+    };
+
+    function resolveProfile(key) {
+      const blueprint = blueprints[key];
+      const profile = profiles[key];
+      return {
+        unlock: profile.unlock,
+        rate: blueprint.io,
+        machines: blueprint.count.startsWith(&quot;精确&quot;) || blueprint.count.includes(&quot;精确/&quot;)
+          ? blueprint.count
+          : &quot;标准块整数配置（精确 = 实建）：&quot; + blueprint.count,
+        logistics: profile.logistics,
+        steps: profile.steps,
+        checks: profile.checks,
+        life: profile.life,
+      };
+    }
 
     function render(key) {
       const blueprint = blueprints[key];
@@ -1581,6 +1929,22 @@ html&gt;body{padding:0}&lt;/style&gt;
       size.textContent = blueprint.size;
       io.textContent = blueprint.io;
       count.textContent = blueprint.count;
+      const profile = resolveProfile(key);
+      guideUnlock.textContent = profile.unlock;
+      guideRate.textContent = profile.rate;
+      guideMachines.textContent = profile.machines;
+      guideLogistics.textContent = profile.logistics;
+      guideSteps.replaceChildren(...profile.steps.map((text) =&gt; {
+        const item = document.createElement(&quot;li&quot;);
+        item.textContent = text;
+        return item;
+      }));
+      guideChecks.replaceChildren(...profile.checks.map((text) =&gt; {
+        const item = document.createElement(&quot;li&quot;);
+        item.textContent = text;
+        return item;
+      }));
+      guideLife.textContent = profile.life;
       grid.replaceChildren(...blueprint.pieces.map((piece) =&gt; {
         const [type, x, y, width, height, label] = piece;
         const element = document.createElement(&quot;div&quot;);
@@ -1604,7 +1968,33 @@ html&gt;body{padding:0}&lt;/style&gt;
       button.addEventListener(&quot;click&quot;, () =&gt; render(button.dataset.blueprint));
     });
 
+    function filterStage(stage) {
+      const plan = stagePlans[stage];
+      stageTitle.textContent = plan.title;
+      stageNow.textContent = plan.now;
+      stageGate.textContent = plan.gate;
+      const blueprintButtons = [...root.querySelectorAll(&quot;[data-blueprint]&quot;)];
+      blueprintButtons.forEach((button) =&gt; {
+        button.hidden = stage !== &quot;all&quot; &amp;&amp; stageByBlueprint[button.dataset.blueprint] !== Number(stage);
+      });
+      root.querySelectorAll(&quot;[data-stage-filter]&quot;).forEach((button) =&gt; {
+        const selected = button.dataset.stageFilter === stage;
+        button.setAttribute(&quot;aria-pressed&quot;, String(selected));
+        button.classList.toggle(&quot;btn-primary&quot;, selected);
+      });
+      const current = root.querySelector(&quot;[data-blueprint][aria-pressed=&#x27;true&#x27;]&quot;);
+      if (current?.hidden) {
+        const firstVisible = blueprintButtons.find((button) =&gt; !button.hidden);
+        if (firstVisible) render(firstVisible.dataset.blueprint);
+      }
+    }
+
+    root.querySelectorAll(&quot;[data-stage-filter]&quot;).forEach((button) =&gt; {
+      button.addEventListener(&quot;click&quot;, () =&gt; filterStage(button.dataset.stageFilter));
+    });
+
     render(&quot;starter&quot;);
+    filterStage(&quot;all&quot;);
   })();
 &lt;/script&gt;
 

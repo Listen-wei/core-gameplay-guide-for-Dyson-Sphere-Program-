@@ -8,8 +8,9 @@
     "test": "node tests/calc.test.mjs",
     "check": "node --check app.js && node --check wiki-recipes.js",
     "audit:blueprints": "node scripts/audit-blueprint-coverage.mjs",
+    "audit:layouts": "node scripts/audit-blueprint-layout.mjs",
     "simulate:late-game": "node scripts/simulate-blueprint-demand.mjs",
-    "validate": "npm run check && npm test && npm run audit:blueprints && npm run simulate:late-game",
+    "validate": "npm run check && npm test && npm run audit:blueprints && npm run audit:layouts && npm run simulate:late-game",
     "import:wiki": "node scripts/import-wiki-recipes.mjs"
   }
 }
